@@ -4,7 +4,7 @@
 #define DEFAULT_MSG "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
 
 int main(int argc, char **argv) {
-  std::string msg("");
+  std::string msg;
 
   if (argc == 1)
     msg = DEFAULT_MSG;
