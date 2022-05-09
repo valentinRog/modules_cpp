@@ -8,6 +8,10 @@
 class PhoneBook {
 private:
   Contact _contacts[N_CONTACT];
+  int     _contactCount;
+public:
+  PhoneBook();
 };
+
 
 #endif

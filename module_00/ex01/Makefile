@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = phonebook
 
 SRC = $(wildcard *.cpp)
 
@@ -9,7 +9,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $< -o $@
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $@
 
 all: $(NAME)
 
