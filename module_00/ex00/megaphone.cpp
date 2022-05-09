@@ -1,13 +1,11 @@
 #include <iostream>
 #include <string>
 
-#define DEFAULT_MSG "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
-
 int main(int argc, char **argv) {
   std::string msg;
 
   if (argc == 1)
-    msg = DEFAULT_MSG;
+    msg = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
   if (argc > 1) {
     for (int i = 1; i < argc; i++)
       msg += argv[i];
