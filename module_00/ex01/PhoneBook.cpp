@@ -19,6 +19,37 @@ void PhoneBook::print() {
     _contacts[i].print();
 }
 
-void PhoneBook::add() {}
+void PhoneBook::add() {
+  std::string firstName;
+  std::string lastName;
+  std::string phoneNumber;
+  std::string darkestSecret;
 
-void PhoneBook::search() {}
+  std::cout << "first name: ";
+  getline(std::cin, firstName);
+  std::cout << "last name: ";
+  getline(std::cin, lastName);
+  std::cout << "phone number: ";
+  getline(std::cin, phoneNumber);
+  std::cout << "darkest secret: ";
+  getline(std::cin, darkestSecret);
+  add_contact(Contact(firstName, lastName, phoneNumber, darkestSecret));
+}
+
+void PhoneBook::search() {
+  int index;
+
+  print();
+  if (!_contactCount)
+    return ;
+  do {
+    std::cout << "index: ";
+    if (std::cin >> index && index >= 0 && index < _contactCount)
+      break;
+    std::cin.clear();
+    std::cin.ignore();
+    std::cout << "invalid index, please try again" << std::endl;
+  } while (true);
+  std::cin.clear();
+  std::cin.ignore();
+}

@@ -17,7 +17,7 @@ private:
 
 public:
   Contact();
-  Contact(std::string fistName, std::string lastName, std::string phoneNumber,
+  Contact(std::string firstName, std::string lastName, std::string phoneNumber,
           std::string darkestSecret);
   void print();
 };
