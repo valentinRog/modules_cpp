@@ -41,18 +41,15 @@ void PhoneBook::search() {
   std::string line;
 
   print();
-  if (!_contactCount)
-  {
+  if (!_contactCount) {
     std::cout << "empty table" << std::endl;
-    return ;
+    return;
   }
 
   std::cout << "index: ";
-  while (std::getline(std::cin, line))
-  {
+  while (std::getline(std::cin, line)) {
     std::stringstream ss(line);
-    ss >> index;
-    if (index >= 0 && index < _contactCount)
+    if (ss >> index && index >= 0 && index < _contactCount)
       break;
     std::cout << "invalid index, please try again: ";
   }
