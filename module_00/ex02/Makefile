@@ -23,4 +23,3 @@ re: fclean all
 
 run: $(NAME)
 	./$(NAME)
-	
