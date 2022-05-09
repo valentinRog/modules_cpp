@@ -30,3 +30,11 @@ void Contact::print() {
   print_width(_darkestSecret);
   std::cout << std::endl;
 }
+
+void Contact::print_full()
+{
+  std::cout << "first name: " << _firstName << std::endl;
+  std::cout << "last name: " << _lastName << std::endl;
+  std::cout << "phone number: " << _phoneNumber << std::endl;
+  std::cout << "darkest secret: " << _darkestSecret << std::endl;
+}

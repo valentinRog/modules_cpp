@@ -20,6 +20,7 @@ public:
   Contact(std::string firstName, std::string lastName, std::string phoneNumber,
           std::string darkestSecret);
   void print();
+  void print_full();
 };
 
 #endif

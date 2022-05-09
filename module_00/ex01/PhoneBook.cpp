@@ -53,4 +53,5 @@ void PhoneBook::search() {
       break;
     std::cout << "invalid index, please try again: ";
   }
+  _contacts[index].print_full();
 }
