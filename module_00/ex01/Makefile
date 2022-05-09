@@ -1,4 +1,4 @@
-NAME = phonebook
+NAME = megaphone
 
 SRC = $(wildcard *.cpp)
 
@@ -23,3 +23,4 @@ re: fclean all
 
 run: $(NAME)
 	./$(NAME)
+	
