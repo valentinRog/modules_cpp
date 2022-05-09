@@ -17,6 +17,8 @@ public:
   PhoneBook();
   void add_contact(Contact contact);
   void print_contacts();
+  void interactive_add();
+  void interactive_search();
 };
 
 #endif

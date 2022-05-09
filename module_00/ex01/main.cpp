@@ -1,11 +1,11 @@
 #include "PhoneBook.hpp"
 
 int main() {
+  std::string line;
   PhoneBook phoneBook;
-  phoneBook.add_contact(Contact("sa", "af", "af", "fa"));
-  phoneBook.add_contact(Contact("sasafamabdsfadsfjkadsjfnabdsfjkf", "af", "af", "fa"));
-  phoneBook.add_contact(Contact("valentin", "af", "af", "fa"));
-  phoneBook.add_contact(Contact("sa", "af", "af", "fa"));
-  phoneBook.print_contacts();
+
+  while (std::getline(std::cin, line)) {
+    std::cout << line << std::endl;
+  }
   return 0;
 }

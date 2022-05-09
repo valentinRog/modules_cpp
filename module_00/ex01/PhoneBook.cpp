@@ -6,8 +6,8 @@ PhoneBook::PhoneBook() {
 }
 
 void PhoneBook::add_contact(Contact contact) {
-  _contacts[_insertIndex] = contact;
-  ++_insertIndex;
+  _contacts[_insertIndex] = Contact(contact);
+  _insertIndex++;
   if (_insertIndex >= N_CONTACT) {
     _insertIndex = 0;
   } else if (_contactCount < N_CONTACT)
