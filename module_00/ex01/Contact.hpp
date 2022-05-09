@@ -1,9 +1,9 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
+#include <iomanip>
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 class Contact {
 
@@ -13,6 +13,7 @@ private:
   std::string _phoneNumber;
   std::string _darkestSecret;
   unsigned int _columnWidth;
+  void print_width(std::string str);
 
 public:
   Contact();

@@ -11,9 +11,22 @@ Contact::Contact(std::string firstName, std::string lastName,
   _columnWidth = 10;
 }
 
+void Contact::print_width(std::string str) {
+  std::string tmp(str);
+
+  if (tmp.size() > _columnWidth)
+    str[_columnWidth - 1] = '.';
+  std::cout << std::setfill(' ') << std::setw(_columnWidth)
+            << str.substr(0, _columnWidth);
+}
+
 void Contact::print() {
-  std::cout << std::setw(_columnWidth) << _firstName << "|";
-  std::cout << std::setw(_columnWidth) << _lastName << "|";
-  std::cout << std::setw(_columnWidth) << _phoneNumber << "|";
-  std::cout << std::setw(_columnWidth) << _darkestSecret << std::endl;
+  print_width(_firstName);
+  std::cout << "|";
+  print_width(_lastName);
+  std::cout << "|";
+  print_width(_phoneNumber);
+  std::cout << "|";
+  print_width(_darkestSecret);
+  std::cout << std::endl;
 }
