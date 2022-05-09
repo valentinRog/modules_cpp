@@ -16,5 +16,5 @@ void PhoneBook::add_contact(Contact contact) {
 
 void PhoneBook::print_contacts() {
   for (int i = 0; i < _contactCount; i++)
-    _contacts[i].print_info();
+    _contacts[i].print();
 }
