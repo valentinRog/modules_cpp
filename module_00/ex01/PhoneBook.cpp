@@ -38,18 +38,22 @@ void PhoneBook::add() {
 
 void PhoneBook::search() {
   int index;
+  std::string line;
 
   print();
   if (!_contactCount)
+  {
+    std::cout << "empty table" << std::endl;
     return ;
-  do {
-    std::cout << "index: ";
-    if (std::cin >> index && index >= 0 && index < _contactCount)
+  }
+
+  std::cout << "index: ";
+  while (std::getline(std::cin, line))
+  {
+    std::stringstream ss(line);
+    ss >> index;
+    if (index >= 0 && index < _contactCount)
       break;
-    std::cin.clear();
-    std::cin.ignore();
-    std::cout << "invalid index, please try again" << std::endl;
-  } while (true);
-  std::cin.clear();
-  std::cin.ignore();
+    std::cout << "invalid index, please try again: ";
+  }
 }

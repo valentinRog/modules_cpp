@@ -4,6 +4,7 @@
 #define N_CONTACT 8
 
 #include <iostream>
+#include <sstream>
 
 #include "Contact.hpp"
 
