@@ -5,7 +5,14 @@ int main() {
   PhoneBook phoneBook;
 
   while (std::getline(std::cin, line)) {
-    std::cout << line << std::endl;
+    if (line == "ADD")
+      phoneBook.add();
+    else if (line == "SEARCH")
+      phoneBook.search();
+    else if (line == "EXIT")
+      break;
+    else
+      std::cout << "invalid command" << std::endl;
   }
   return 0;
 }

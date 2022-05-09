@@ -14,7 +14,11 @@ void PhoneBook::add_contact(Contact contact) {
     _contactCount++;
 }
 
-void PhoneBook::print_contacts() {
+void PhoneBook::print() {
   for (int i = 0; i < _contactCount; i++)
     _contacts[i].print();
 }
+
+void PhoneBook::add() {}
+
+void PhoneBook::search() {}
