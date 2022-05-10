@@ -4,7 +4,7 @@ int main() {
   std::string line;
   PhoneBook phoneBook;
 
-  std::cout << ">";
+  std::cout << "> ";
   while (std::getline(std::cin, line)) {
     if (line == "ADD")
       phoneBook.add();
@@ -14,7 +14,7 @@ int main() {
       break;
     else
       std::cout << "invalid command" << std::endl;
-    std::cout << ">";
+    std::cout << "> ";
   }
   return 0;
 }

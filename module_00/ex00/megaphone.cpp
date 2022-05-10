@@ -6,7 +6,7 @@ int main(int argc, char **argv) {
 
   if (argc == 1)
     msg = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-  if (argc > 1) {
+  else if (argc > 1) {
     for (int i = 1; i < argc; i++)
       msg += argv[i];
     for (std::string::iterator it = msg.begin(); it < msg.end(); it++)
