@@ -3,17 +3,17 @@
 Contact::Contact() { _fieldWidth = 10; }
 
 Contact::Contact(std::string firstName, std::string lastName,
-                 std::string phoneNumber, std::string darkestSecret) {
+                 std::string nickName, std::string phoneNumber,
+                 std::string darkestSecret) {
   _firstName = firstName;
   _lastName = lastName;
+  _nickName = nickName;
   _phoneNumber = phoneNumber;
   _darkestSecret = darkestSecret;
   _fieldWidth = 10;
 }
 
-size_t Contact::get_field_width() const {
-  return _fieldWidth;
-}
+size_t Contact::get_field_width() const { return _fieldWidth; }
 
 void Contact::print_width(std::string str) {
   std::string tmp(str);
@@ -29,9 +29,7 @@ void Contact::print(bool endl) {
   std::cout << "|";
   print_width(_lastName);
   std::cout << "|";
-  print_width(_phoneNumber);
-  std::cout << "|";
-  print_width(_darkestSecret);
+  print_width(_nickName);
   if (endl)
     std::cout << std::endl;
 }
@@ -39,6 +37,7 @@ void Contact::print(bool endl) {
 void Contact::print_full() {
   std::cout << "first name: " << _firstName << std::endl;
   std::cout << "last name: " << _lastName << std::endl;
+  std::cout << "nickname: " << _nickName << std::endl;
   std::cout << "phone number: " << _phoneNumber << std::endl;
   std::cout << "darkest secret: " << _darkestSecret << std::endl;
 }

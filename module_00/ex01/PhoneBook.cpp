@@ -21,7 +21,7 @@ void PhoneBook::print(char border) {
     std::cout << "Sadly, you don't have any friends..." << std::endl;
   }
   for (int i = 0; i < _contactCount; i++) {
-    size_t headerWidth = _contacts[i].get_field_width() * 5 + 6;
+    size_t headerWidth = _contacts[i].get_field_width() * 4 + 5;
     if (!i) {
       std::cout << std::string(headerWidth, border) << std::endl;
       std::cout << border;
@@ -31,9 +31,7 @@ void PhoneBook::print(char border) {
       std::cout << "|";
       _contacts[i].print_width("last name");
       std::cout << "|";
-      _contacts[i].print_width("phone number");
-      std::cout << "|";
-      _contacts[i].print_width("darkest secret");
+      _contacts[i].print_width("nickname");
       std::cout << border << std::endl;
       std::cout << std::string(headerWidth, border) << std::endl;
     }
@@ -55,6 +53,7 @@ void PhoneBook::print(char border) {
 void PhoneBook::add() {
   std::string firstName;
   std::string lastName;
+  std::string nickName;
   std::string phoneNumber;
   std::string darkestSecret;
 
@@ -62,11 +61,14 @@ void PhoneBook::add() {
   getline(std::cin, firstName);
   std::cout << "last name: ";
   getline(std::cin, lastName);
+  std::cout << "nickname: ";
+  getline(std::cin, nickName);
   std::cout << "phone number: ";
   getline(std::cin, phoneNumber);
   std::cout << "darkest secret: ";
   getline(std::cin, darkestSecret);
-  add_contact(Contact(firstName, lastName, phoneNumber, darkestSecret));
+  add_contact(
+      Contact(firstName, lastName, nickName, phoneNumber, darkestSecret));
 }
 
 void PhoneBook::search() {
