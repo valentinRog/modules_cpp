@@ -14,7 +14,7 @@ private:
   int _insertIndex;
   int _contactCount;
   void add_contact(Contact contact);
-  void print(char border = '+');
+  void print(char border = '#');
 
 public:
   PhoneBook();

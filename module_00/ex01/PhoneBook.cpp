@@ -10,8 +10,10 @@ void PhoneBook::add_contact(Contact contact) {
   _insertIndex++;
   if (_insertIndex >= _contactMax) {
     _insertIndex = 0;
-  } else if (_contactCount < _contactMax)
+  }
+  if (_contactCount < _contactMax) {
     _contactCount++;
+  }
 }
 
 void PhoneBook::print(char border) {
