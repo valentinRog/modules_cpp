@@ -19,9 +19,9 @@ void PhoneBook::print(char border) {
     std::cout << "Sadly, you don't have any friends..." << std::endl;
   }
   for (int i = 0; i < _contactCount; i++) {
+    size_t headerWidth = _contacts[i].get_field_width() * 5 + 6;
     if (!i) {
-      std::cout << std::string(_contacts[i].get_field_width() * 5 + 6, border)
-                << std::endl;
+      std::cout << std::string(headerWidth, border) << std::endl;
       std::cout << border;
       _contacts[i].print_width("index");
       std::cout << "|";
@@ -33,8 +33,7 @@ void PhoneBook::print(char border) {
       std::cout << "|";
       _contacts[i].print_width("darkest secret");
       std::cout << border << std::endl;
-      std::cout << std::string(_contacts[i].get_field_width() * 5 + 6, border)
-                << std::endl;
+      std::cout << std::string(headerWidth, border) << std::endl;
     }
     std::stringstream ss;
     std::string str;
@@ -46,8 +45,7 @@ void PhoneBook::print(char border) {
     _contacts[i].print(false);
     std::cout << border << std::endl;
     if (i == _contactCount - 1) {
-      std::cout << std::string(_contacts[i].get_field_width() * 5 + 6, border)
-                << std::endl;
+      std::cout << std::string(headerWidth, border) << std::endl;
     }
   }
 }

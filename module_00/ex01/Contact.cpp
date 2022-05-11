@@ -11,7 +11,7 @@ Contact::Contact(std::string firstName, std::string lastName,
   _fieldWidth = 10;
 }
 
-unsigned int Contact::get_field_width() const {
+size_t Contact::get_field_width() const {
   return _fieldWidth;
 }
 
