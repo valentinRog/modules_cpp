@@ -22,5 +22,17 @@ int main(int argc, char **argv) {
               << std::endl;
     return 1;
   }
+  std::string buffer;
+  char c;
+  while (iStream.get(c)) {
+    buffer += c;
+  }
+  std::string::size_type index = buffer.find(oldString);
+  while (index != std::string::npos) {
+    buffer.erase(index, oldString.size());
+    buffer.insert(index, newString);
+    index = buffer.find(oldString);
+  }
+  oStream << buffer;
   return 0;
 }
