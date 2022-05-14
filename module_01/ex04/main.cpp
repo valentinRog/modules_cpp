@@ -11,6 +11,10 @@ int main(int argc, char **argv) {
   std::string oldString(argv[2]);
   std::string newString(argv[3]);
 
+  if (oldString.empty()) {
+	std::cerr << "string to replace shouldn't be empty" << std::endl;
+	return	 1;
+  }
   std::ifstream iStream(filename.c_str());
   if (!iStream) {
     std::cerr << "Error: Unable to open file: " << filename << std::endl;
