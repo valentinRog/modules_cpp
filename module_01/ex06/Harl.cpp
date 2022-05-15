@@ -1,5 +1,8 @@
 #include "Harl.hpp"
 
+int const Harl::_levelCount = 4;
+std::string const Harl::_levelStr[] = {"debug", "info", "warning", "error"};
+
 void Harl::debug() {
   std::cout
       << "I love having extra bacon for my "
@@ -26,16 +29,37 @@ void Harl::error() {
             << std::endl;
 }
 
-void Harl::complain(std::string level) {
-  const int levelCount = 4;
-  void (Harl::*levelFun[levelCount])(void) = {&Harl::debug, &Harl::info,
-                                              &Harl::warning, &Harl::error};
-  std::string levelStr[levelCount] = {"debug", "info", "warning", "error"};
+int Harl::get_level_index(std::string level) {
+  for (int i = 0; i < _levelCount; i++) {
+    if (level == _levelStr[i]) {
+      return i;
+    }
+  }
+  return -1;
+}
 
-  for (int i = 0; i < levelCount; i++) {
-    if (level == levelStr[i]) {
+void Harl::complain(std::string level) {
+  void (Harl::*levelFun[])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
+                                    &Harl::error};
+
+  for (int i = 0; i < _levelCount; i++) {
+    if (level == _levelStr[i]) {
       (this->*levelFun[i])();
       break;
+    }
+  }
+}
+
+void Harl::complainFilter(int code) {
+  for (int i = 0; i < _levelCount; i++) {
+    if (1 << i & code) {
+      std::string level = _levelStr[i];
+      std::cout << "[ ";
+      for (std::string::iterator it = level.begin(); it < level.end(); it++) {
+        std::cout << (char)std::toupper(*it);
+      }
+      std::cout << " ]" << std::endl;
+      complain(_levelStr[i]);
     }
   }
 }
