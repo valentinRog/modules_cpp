@@ -1,17 +1,14 @@
 #include "Contact.hpp"
 
-Contact::Contact() { _fieldWidth = 10; }
+size_t Contact::_fieldWidth = 10;
+
+Contact::Contact(){}
 
 Contact::Contact(std::string firstName, std::string lastName,
                  std::string nickName, std::string phoneNumber,
-                 std::string darkestSecret) {
-  _firstName = firstName;
-  _lastName = lastName;
-  _nickName = nickName;
-  _phoneNumber = phoneNumber;
-  _darkestSecret = darkestSecret;
-  _fieldWidth = 10;
-}
+                 std::string darkestSecret)
+    : _firstName(firstName), _lastName(lastName), _nickName(nickName),
+      _phoneNumber(phoneNumber), _darkestSecret(darkestSecret) {}
 
 size_t Contact::get_field_width() const { return _fieldWidth; }
 

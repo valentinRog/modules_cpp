@@ -13,7 +13,7 @@ private:
   std::string _nickName;
   std::string _phoneNumber;
   std::string _darkestSecret;
-  size_t _fieldWidth;
+  static size_t _fieldWidth;
 
 public:
   Contact();

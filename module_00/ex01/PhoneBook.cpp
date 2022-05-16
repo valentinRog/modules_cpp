@@ -6,7 +6,7 @@ PhoneBook::PhoneBook() {
 }
 
 void PhoneBook::add_contact(Contact contact) {
-  _contacts[_insertIndex] = Contact(contact);
+  _contacts[_insertIndex] = contact;
   _insertIndex++;
   if (_insertIndex >= _contactMax) {
     _insertIndex = 0;
