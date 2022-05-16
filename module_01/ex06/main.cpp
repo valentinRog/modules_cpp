@@ -3,15 +3,13 @@
 
 #include "Harl.hpp"
 
-static void str_to_lower( std::string &str )
-{
+static void str_to_lower( std::string &str ) {
 	for ( std::string::iterator it = str.begin(); it < str.end(); it++ ) {
 		*it = std::tolower( *it );
 	}
 }
 
-int main( int argc, char **argv )
-{
+int main( int argc, char **argv ) {
 	if ( argc != 2 ) {
 		std::cerr << "Error: 1 positional argument required" << std::endl;
 		return 1;

@@ -1,7 +1,6 @@
 #include "Zombie.hpp"
 
-int main( void )
-{
+int main( void ) {
 	int const N		= 5;
 	Zombie *  horde = zombieHorde( N, "Yo" );
 

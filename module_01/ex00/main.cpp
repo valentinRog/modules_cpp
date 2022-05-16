@@ -1,7 +1,6 @@
 #include "Zombie.hpp"
 
-int main( void )
-{
+int main( void ) {
 	{
 		Zombie zombieOnStack( "zombieOnStack" );
 		zombieOnStack.announce();
@@ -13,8 +12,6 @@ int main( void )
 		delete zombieOnHeap;
 	}
 	std::cout << std::endl;
-	{
-		randomChump( "randomZombie" );
-	}
+	{ randomChump( "randomZombie" ); }
 	return 0;
 }

@@ -2,8 +2,7 @@
 #include <iostream>
 #include <string>
 
-int main( int argc, char **argv )
-{
+int main( int argc, char **argv ) {
 	if ( argc != 4 ) {
 		std::cerr << "Error: 3 positional arguments required" << std::endl;
 		return 1;

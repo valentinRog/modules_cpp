@@ -5,8 +5,7 @@
 #include <iostream>
 #include <string>
 
-class HumanB
-{
+class HumanB {
 
   private:
 	std::string _name;

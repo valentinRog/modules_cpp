@@ -4,8 +4,7 @@
 #include <iostream>
 #include <string>
 
-class Harl
-{
+class Harl {
   private:
 	void					 debug();
 	void					 info();

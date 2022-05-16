@@ -1,3 +1,5 @@
+BasedOnStyle: LLVM
+
 AlignAfterOpenBracket: true
 
 AlignConsecutiveAssignments: true
@@ -22,7 +24,7 @@ AllowShortIfStatementsOnASingleLine: true
 
 AllowShortLoopsOnASingleLine: true
 
-AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakBeforeMultilineStrings: true
 
 BinPackArguments: false
 
@@ -30,15 +32,7 @@ BinPackParameters: false
 
 BreakBeforeBinaryOperators: All
 
-BreakBeforeBraces: Mozilla
-
 BreakBeforeTernaryOperators: true
-
-BreakConstructorInitializers: AfterColon
-
-BreakInheritanceList: AfterColon
-
-CompactNamespaces: false
 
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 
@@ -58,7 +52,7 @@ SpaceBeforeRangeBasedForLoopColon: true
 
 SpaceInEmptyParentheses: false
 
-SpacesBeforeTrailingComments: 4
+SpacesBeforeTrailingComments: 8
 
 SpacesInAngles: false
 

@@ -1,21 +1,18 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
-{
+PhoneBook::PhoneBook() {
 	_insertIndex  = 0;
 	_contactCount = 0;
 }
 
-void PhoneBook::add_contact( Contact contact )
-{
+void PhoneBook::add_contact( Contact contact ) {
 	_contacts[_insertIndex] = contact;
 	_insertIndex++;
 	if ( _insertIndex >= _contactMax ) { _insertIndex = 0; }
 	if ( _contactCount < _contactMax ) { _contactCount++; }
 }
 
-void PhoneBook::print( char border )
-{
+void PhoneBook::print( char border ) {
 	if ( !_contactCount ) {
 		std::cout << "Sadly, you don't have any friends..." << std::endl;
 	}
@@ -49,8 +46,7 @@ void PhoneBook::print( char border )
 	}
 }
 
-void PhoneBook::add()
-{
+void PhoneBook::add() {
 	std::string firstName;
 	std::string lastName;
 	std::string nickName;
@@ -71,8 +67,7 @@ void PhoneBook::add()
 		Contact( firstName, lastName, nickName, phoneNumber, darkestSecret ) );
 }
 
-void PhoneBook::search()
-{
+void PhoneBook::search() {
 	int			index;
 	std::string line;
 
