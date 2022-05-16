@@ -13,10 +13,12 @@ int main(int argc, char **argv) {
     std::cerr << "Error: 1 positional argument required" << std::endl;
     return 1;
   }
+
   Harl harl;
   std::string level(argv[1]);
   str_to_lower(level);
   int index = harl.get_level_index(level);
+
   switch (index) {
   case 0:
     harl.complainFilter(0b1111);
