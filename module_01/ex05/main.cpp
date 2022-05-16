@@ -2,6 +2,7 @@
 
 int main(void) {
   Harl harl;
+
   harl.complain("debug");
   std::cout << std::endl;
   harl.complain("info");
