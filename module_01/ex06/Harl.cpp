@@ -1,35 +1,45 @@
 #include "Harl.hpp"
 
 int const Harl::_levelCount = 4;
-std::string const Harl::_levelStr[] = {"debug", "info", "warning", "error"};
+std::string const Harl::_levelStr[] = { "debug", "info", "warning", "error" };
 
-void Harl::debug() {
+void
+Harl::debug()
+{
   std::cout
-      << "I love having extra bacon for my "
-         "7XL-double-cheese-triple-pickle-specialketchup burger. I really do!"
-      << std::endl;
+    << "I love having extra bacon for my "
+       "7XL-double-cheese-triple-pickle-specialketchup burger. I really do!"
+    << std::endl;
 }
 
-void Harl::info() {
+void
+Harl::info()
+{
   std::cout
-      << "I cannot believe adding extra bacon costs more money. You didn’t put "
-         "enough bacon in my burger! If you did, I wouldn’t be asking for more!"
-      << std::endl;
+    << "I cannot believe adding extra bacon costs more money. You didn’t put "
+       "enough bacon in my burger! If you did, I wouldn’t be asking for more!"
+    << std::endl;
 }
 
-void Harl::warning() {
+void
+Harl::warning()
+{
   std::cout
-      << "I think I deserve to have some extra bacon for free. I’ve been "
-         "coming for years whereas you started working here since last month."
-      << std::endl;
+    << "I think I deserve to have some extra bacon for free. I’ve been "
+       "coming for years whereas you started working here since last month."
+    << std::endl;
 }
 
-void Harl::error() {
+void
+Harl::error()
+{
   std::cout << "This is unacceptable! I want to speak to the manager now."
             << std::endl;
 }
 
-int Harl::get_level_index(std::string level) {
+int
+Harl::get_level_index(std::string level)
+{
   for (int i = 0; i < _levelCount; i++) {
     if (level == _levelStr[i]) {
       return i;
@@ -38,9 +48,11 @@ int Harl::get_level_index(std::string level) {
   return -1;
 }
 
-void Harl::complain(std::string level) {
-  void (Harl::*levelFun[])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
-                                    &Harl::error};
+void
+Harl::complain(std::string level)
+{
+  void (Harl::*levelFun[])(
+    void) = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 
   for (int i = 0; i < _levelCount; i++) {
     if (level == _levelStr[i]) {
@@ -50,7 +62,9 @@ void Harl::complain(std::string level) {
   }
 }
 
-void Harl::complainFilter(int code) {
+void
+Harl::complainFilter(int code)
+{
   for (int i = 0; i < _levelCount; i++) {
     if (1 << i & code) {
       std::string level = _levelStr[i];

@@ -1,6 +1,8 @@
 #include "Harl.hpp"
 
-int main(void) {
+int
+main(void)
+{
   Harl harl;
 
   harl.complain("debug");

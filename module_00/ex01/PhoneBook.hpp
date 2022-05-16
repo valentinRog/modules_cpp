@@ -2,12 +2,13 @@
 #define PHONE_BOOK_HPP
 
 #include <iostream>
-#include <string>
 #include <sstream>
+#include <string>
 
 #include "Contact.hpp"
 
-class PhoneBook {
+class PhoneBook
+{
 private:
   static const int _contactMax = 8;
   Contact _contacts[_contactMax];

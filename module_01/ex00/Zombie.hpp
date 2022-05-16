@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 
-class Zombie {
+class Zombie
+{
 
 private:
   std::string _name;
@@ -12,6 +13,8 @@ public:
   void announce();
 };
 
-Zombie *newZombie(std::string name);
+Zombie*
+newZombie(std::string name);
 
-void randomChump(std::string name);
+void
+randomChump(std::string name);

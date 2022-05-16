@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, char **argv) {
+int
+main(int argc, char** argv)
+{
   if (argc != 4) {
     std::cerr << "Error: 3 positional arguments required" << std::endl;
     return 1;
@@ -13,8 +15,8 @@ int main(int argc, char **argv) {
   std::string newString(argv[3]);
 
   if (oldString.empty()) {
-	std::cerr << "string to replace shouldn't be empty" << std::endl;
-	return	 1;
+    std::cerr << "string to replace shouldn't be empty" << std::endl;
+    return 1;
   }
 
   std::ifstream iStream(filename.c_str());

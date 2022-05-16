@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 
-int main(int argc, char **argv) {
+int
+main(int argc, char** argv)
+{
   std::string msg;
 
   if (argc == 1)
