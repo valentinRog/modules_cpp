@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
     harl.complainFilter(0b1100);
     break;
   case 3:
-    harl.complainFilter(0b1110);
+    harl.complainFilter(0b1000);
     break;
   default:
     std::cout << "[ Probably complaining about insignificant problems ]"
