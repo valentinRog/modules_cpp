@@ -17,9 +17,10 @@ int main( int argc, char **argv ) {
 
 	Harl		harl;
 	std::string level( argv[1] );
-	int			index = harl.get_level_index( level );
 
 	str_to_lower( level );
+
+	int			index = harl.get_level_index( level );
 
 	switch ( index ) {
 	case 0:
