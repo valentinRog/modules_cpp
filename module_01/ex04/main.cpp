@@ -38,7 +38,8 @@ int main( int argc, char **argv ) {
 	while ( index != std::string::npos ) {
 		buffer.erase( index, oldString.size() );
 		buffer.insert( index, newString );
-		index = buffer.find( oldString );
+		index += newString.size();
+		index = buffer.find( oldString, index );
 	}
 	oStream << buffer;
 
