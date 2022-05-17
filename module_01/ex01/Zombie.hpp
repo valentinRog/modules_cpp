@@ -6,10 +6,10 @@
 
 class Zombie {
 
-  private:
+private:
 	std::string _name;
 
-  public:
+public:
 	Zombie();
 	Zombie( std::string name );
 	~Zombie();

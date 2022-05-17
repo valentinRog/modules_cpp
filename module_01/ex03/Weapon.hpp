@@ -5,10 +5,10 @@
 
 class Weapon {
 
-  private:
+private:
 	std::string _type;
 
-  public:
+public:
 	Weapon( std::string type );
 
 	std::string const &getType();

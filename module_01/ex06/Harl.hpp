@@ -5,7 +5,8 @@
 #include <string>
 
 class Harl {
-  private:
+
+private:
 	void debug();
 	void info();
 	void warning();
@@ -14,7 +15,7 @@ class Harl {
 	static int const		 _levelCount;
 	static std::string const _levelStr[];
 
-  public:
+public:
 	int	 get_level_index( std::string level );
 	void complain( std::string level );
 	void complainFilter( int code );

@@ -6,7 +6,7 @@
 
 class Harl {
 
-  private:
+private:
 	void debug();
 	void info();
 	void warning();
@@ -15,7 +15,7 @@ class Harl {
 	static int const		 _levelCount;
 	static std::string const _levelStr[];
 
-  public:
+public:
 	void complain( std::string level );
 };
 

@@ -8,7 +8,7 @@
 #include "Contact.hpp"
 
 class PhoneBook {
-  private:
+private:
 	static const int _contactMax = 8;
 	Contact			 _contacts[_contactMax];
 	int				 _insertIndex;
@@ -16,7 +16,7 @@ class PhoneBook {
 	void			 add_contact( Contact contact );
 	void			 print( char border = '*' );
 
-  public:
+public:
 	PhoneBook();
 	void add();
 	void search();
