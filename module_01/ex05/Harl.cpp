@@ -1,7 +1,7 @@
 #include "Harl.hpp"
 
 int const		  Harl::_levelCount = 4;
-std::string const Harl::_levelStr[] = { "debug", "info", "warning", "error" };
+std::string const Harl::_levelStr[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
 void Harl::debug() {
 	std::cout

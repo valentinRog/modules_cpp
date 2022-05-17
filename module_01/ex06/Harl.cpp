@@ -1,7 +1,7 @@
 #include "Harl.hpp"
 
 int const		  Harl::_levelCount = 4;
-std::string const Harl::_levelStr[] = { "debug", "info", "warning", "error" };
+std::string const Harl::_levelStr[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
 void Harl::debug() {
 	std::cout
@@ -52,13 +52,7 @@ void Harl::complain( std::string level ) {
 void Harl::complainFilter( int code ) {
 	for ( int i = 0; i < _levelCount; i++ ) {
 		if ( 1 << i & code ) {
-			std::string level = _levelStr[i];
-			std::cout << "[ ";
-			for ( std::string::iterator it = level.begin(); it < level.end();
-				  it++ ) {
-				std::cout << ( char ) std::toupper( *it );
-			}
-			std::cout << " ]" << std::endl;
+			std::cout << "[ " << _levelStr[i] << " ]" << std::endl;
 			complain( _levelStr[i] );
 		}
 	}

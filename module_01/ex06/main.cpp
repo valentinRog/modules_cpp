@@ -3,12 +3,6 @@
 
 #include "Harl.hpp"
 
-static void str_to_lower( std::string &str ) {
-	for ( std::string::iterator it = str.begin(); it < str.end(); it++ ) {
-		*it = std::tolower( *it );
-	}
-}
-
 int main( int argc, char **argv ) {
 	if ( argc != 2 ) {
 		std::cerr << "Error: 1 positional argument required" << std::endl;
@@ -17,9 +11,6 @@ int main( int argc, char **argv ) {
 
 	Harl		harl;
 	std::string level( argv[1] );
-
-	str_to_lower( level );
-
 	int			index = harl.get_level_index( level );
 
 	switch ( index ) {
