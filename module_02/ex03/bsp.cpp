@@ -8,6 +8,7 @@ static bool isleft( Point const a, Point const b, Point const p ) {
     float bY( b.getY().toFloat() );
     float pX( p.getX().toFloat() );
     float pY( p.getY().toFloat() );
+
     return ( ( bX - aX ) * ( pY - aY ) - ( pX - aX ) * ( bY - aY ) ) > 0.0f;
 }
 
