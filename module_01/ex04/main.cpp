@@ -13,7 +13,7 @@ int main( int argc, char **argv ) {
 	std::string newString( argv[3] );
 
 	if ( oldString.empty() ) {
-		std::cerr << "string to replace shouldn't be empty" << std::endl;
+		std::cerr << "Error: string to replace shouldn't be empty" << std::endl;
 		return 1;
 	}
 
