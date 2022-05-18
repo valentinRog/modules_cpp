@@ -10,10 +10,15 @@ private:
 
 public:
     Point();
-    Point( const Fixed &x, const Fixed &y );
+    Point( float const x, float const y );
     Point( const Point &other );
     Point &operator=( const Point &other );
     ~Point();
+
+    const Fixed &getX() const;
+    const Fixed &getY() const;
 };
+
+bool bsp( Point const a, Point const b, Point const c, Point const Point );
 
 #endif
