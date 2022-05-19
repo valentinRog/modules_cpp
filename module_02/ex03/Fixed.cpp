@@ -33,9 +33,13 @@ std::ostream &operator<<( std::ostream &os, const Fixed &fixed ) {
     return os;
 }
 
-bool Fixed::operator>( const Fixed &other ) const { return _raw > other.getRawBits(); }
+bool Fixed::operator>( const Fixed &other ) const {
+    return _raw > other.getRawBits();
+}
 
-bool Fixed::operator<( const Fixed &other ) const { return _raw < other.getRawBits(); }
+bool Fixed::operator<( const Fixed &other ) const {
+    return _raw < other.getRawBits();
+}
 
 bool Fixed::operator>=( const Fixed &other ) const {
     return _raw >= other.getRawBits();
@@ -80,13 +84,13 @@ Fixed Fixed::operator--() {
 }
 
 Fixed Fixed::operator++( int ) {
-    Fixed swap = *this;
+    Fixed swap( *this );
     _raw++;
     return swap;
 }
 
 Fixed Fixed::operator--( int ) {
-    Fixed swap = *this;
+    Fixed swap( *this );
     _raw--;
     return swap;
 }

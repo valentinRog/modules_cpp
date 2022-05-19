@@ -12,40 +12,6 @@ void PhoneBook::add_contact( Contact contact ) {
     if ( _contactCount < _contactMax ) { _contactCount++; }
 }
 
-void PhoneBook::print( char border ) {
-    if ( !_contactCount ) {
-        std::cout << "Sadly, you don't have any friends..." << std::endl;
-    }
-    for ( int i = 0; i < _contactCount; i++ ) {
-        size_t headerWidth = _contacts[i].get_field_width() * 4 + 5;
-        if ( !i ) {
-            std::cout << std::string( headerWidth, border ) << std::endl;
-            std::cout << border;
-            _contacts[i].print_width( "index" );
-            std::cout << "|";
-            _contacts[i].print_width( "first name" );
-            std::cout << "|";
-            _contacts[i].print_width( "last name" );
-            std::cout << "|";
-            _contacts[i].print_width( "nickname" );
-            std::cout << border << std::endl;
-            std::cout << std::string( headerWidth, border ) << std::endl;
-        }
-        std::stringstream ss;
-        std::string       str;
-        ss << i;
-        ss >> str;
-        std::cout << border;
-        _contacts[i].print_width( str );
-        std::cout << "|";
-        _contacts[i].print( false );
-        std::cout << border << std::endl;
-        if ( i == _contactCount - 1 ) {
-            std::cout << std::string( headerWidth, border ) << std::endl;
-        }
-    }
-}
-
 void PhoneBook::add() {
     std::string firstName;
     std::string lastName;
@@ -71,7 +37,7 @@ void PhoneBook::search() {
     int         index;
     std::string line;
 
-    print();
+    std::cout << *this << std::endl;
     if ( _contactCount ) {
         std::cout << "index: ";
         while ( std::getline( std::cin, line ) ) {
@@ -79,6 +45,45 @@ void PhoneBook::search() {
             if ( ss >> index && index >= 0 && index < _contactCount ) break;
             std::cout << "invalid index, please try again: ";
         }
-        _contacts[index].print_full();
+        std::cout << _contacts[index] << std::endl;
     }
+}
+
+std::ostream &operator<<( std::ostream &os, const PhoneBook &phoneBook ) {
+    if ( !phoneBook.getContactCount() ) {
+        std::cout << "Sadly, you don't have any friends..." << std::endl;
+    }
+
+    char border('*');
+
+    for ( int i = 0; i < phoneBook.getContactCount(); i++ ) {
+        size_t headerWidth
+            = phoneBook.getContacts()[i].get_field_width() * 4 + 5;
+        if ( !i ) {
+            std::cout << std::string( headerWidth, border ) << std::endl;
+            std::cout << border;
+            phoneBook.getContacts()[i].print_width( "index" );
+            std::cout << "|";
+            phoneBook.getContacts()[i].print_width( "first name" );
+            std::cout << "|";
+            phoneBook.getContacts()[i].print_width( "last name" );
+            std::cout << "|";
+            phoneBook.getContacts()[i].print_width( "nickname" );
+            std::cout << border << std::endl;
+            std::cout << std::string( headerWidth, border ) << std::endl;
+        }
+        std::stringstream ss;
+        std::string       str;
+        ss << i;
+        ss >> str;
+        std::cout << border;
+        phoneBook.getContacts()[i].print_width( str );
+        std::cout << "|";
+        phoneBook.getContacts()[i].print_line();
+        std::cout << border << std::endl;
+        if ( i == phoneBook.getContactCount() - 1 ) {
+            std::cout << std::string( headerWidth, border ) << std::endl;
+        }
+    }
+    return os;
 }
