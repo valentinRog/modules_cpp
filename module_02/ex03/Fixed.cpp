@@ -12,7 +12,7 @@ Fixed::Fixed( const float n )
     : _raw( roundf( n * ( 1 << _fractionalBits ) ) ) {}
 
 Fixed &Fixed::operator=( const Fixed &other ) {
-    _raw = other._raw;
+    _raw = other.getRawBits();
     return *this;
 }
 
@@ -33,24 +33,24 @@ std::ostream &operator<<( std::ostream &os, const Fixed &fixed ) {
     return os;
 }
 
-bool Fixed::operator>( const Fixed &other ) const { return _raw > other._raw; }
+bool Fixed::operator>( const Fixed &other ) const { return _raw > other.getRawBits(); }
 
-bool Fixed::operator<( const Fixed &other ) const { return _raw < other._raw; }
+bool Fixed::operator<( const Fixed &other ) const { return _raw < other.getRawBits(); }
 
 bool Fixed::operator>=( const Fixed &other ) const {
-    return _raw >= other._raw;
+    return _raw >= other.getRawBits();
 }
 
 bool Fixed::operator<=( const Fixed &other ) const {
-    return _raw <= other._raw;
+    return _raw <= other.getRawBits();
 }
 
 bool Fixed::operator==( const Fixed &other ) const {
-    return _raw == other._raw;
+    return _raw == other.getRawBits();
 }
 
 bool Fixed::operator!=( const Fixed &other ) const {
-    return _raw != other._raw;
+    return _raw != other.getRawBits();
 }
 
 Fixed Fixed::operator+( const Fixed &other ) const {
@@ -79,9 +79,17 @@ Fixed Fixed::operator--() {
     return *this;
 }
 
-Fixed Fixed::operator++( int ) { return ++Fixed( *this ); }
+Fixed Fixed::operator++( int ) {
+    Fixed swap = *this;
+    _raw++;
+    return swap;
+}
 
-Fixed Fixed::operator--( int ) { return --Fixed( *this ); }
+Fixed Fixed::operator--( int ) {
+    Fixed swap = *this;
+    _raw--;
+    return swap;
+}
 
 Fixed &Fixed::min( Fixed &a, Fixed &b ) { return b < a ? b : a; }
 
