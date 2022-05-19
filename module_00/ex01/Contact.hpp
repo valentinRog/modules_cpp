@@ -31,8 +31,8 @@ public:
     std::string getDarkestSecret() const;
 
     size_t get_field_width() const;
-    void   print_width( std::string str );
-    void   print_line();
+    void   print_width( std::string str ) const;
+    void   print_line() const;
 };
 
 std::ostream &operator<<( std::ostream &os, const Contact &point );

@@ -27,7 +27,7 @@ std::string Contact::getDarkestSecret() const { return _darkestSecret; }
 
 size_t Contact::get_field_width() const { return _fieldWidth; }
 
-void Contact::print_width( std::string str ) {
+void Contact::print_width( std::string str ) const {
     std::string tmp( str );
 
     if ( tmp.size() > _fieldWidth ) str[_fieldWidth - 1] = '.';
@@ -35,7 +35,7 @@ void Contact::print_width( std::string str ) {
               << str.substr( 0, _fieldWidth );
 }
 
-void Contact::print_line() {
+void Contact::print_line() const {
     print_width( _firstName );
     std::cout << "|";
     print_width( _lastName );
