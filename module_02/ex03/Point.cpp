@@ -17,3 +17,9 @@ Point::~Point() {}
 const Fixed &Point::getX() const { return _x; }
 
 const Fixed &Point::getY() const { return _y; }
+
+std::ostream &operator<<( std::ostream &os, const Point &point ) {
+    os << "( " << point.getX().toFloat() << ", " << point.getY().toFloat()
+       << " )";
+    return os;
+}

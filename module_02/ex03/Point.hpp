@@ -19,6 +19,8 @@ public:
     const Fixed &getY() const;
 };
 
+std::ostream &operator<<( std::ostream &os, const Point &point );
+
 bool bsp( Point const a, Point const b, Point const c, Point const Point );
 
 #endif
