@@ -2,7 +2,7 @@
 
 /* -------------------------------------------------------------------------- */
 
-const int Fixed::_fractionalBits = 8;
+int const Fixed::_fractionalBits = 8;
 
 /* -------------------------------------------------------------------------- */
 
@@ -15,7 +15,7 @@ Fixed::Fixed( const Fixed &other ) {
     *this = other;
 }
 
-Fixed::Fixed( const int n ) : _rawBits( n << _fractionalBits ) {
+Fixed::Fixed( int const n ) : _rawBits( n << _fractionalBits ) {
     std::cout << "Int constructor called" << std::endl;
 }
 

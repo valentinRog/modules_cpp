@@ -8,12 +8,12 @@ class Fixed {
 private:
     int _rawBits;
 
-    static const int _fractionalBits;
+    static int const _fractionalBits;
 
 public:
     Fixed();
     Fixed( const Fixed &other );
-    Fixed &operator=( const Fixed &other );
+    Fixed &operator=( Fixed const &other );
     ~Fixed();
 
     int  getRawBits( void ) const;
