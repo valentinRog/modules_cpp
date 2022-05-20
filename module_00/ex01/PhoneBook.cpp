@@ -1,9 +1,13 @@
 #include "PhoneBook.hpp"
 
+/* -------------------------------------------------------------------------- */
+
 PhoneBook::PhoneBook() {
     _insertIndex  = 0;
     _contactCount = 0;
 }
+
+/* -------------------------------------------------------------------------- */
 
 void PhoneBook::add_contact( Contact contact ) {
     _contacts[_insertIndex] = contact;
@@ -11,6 +15,14 @@ void PhoneBook::add_contact( Contact contact ) {
     if ( _insertIndex >= _contactMax ) { _insertIndex = 0; }
     if ( _contactCount < _contactMax ) { _contactCount++; }
 }
+
+/* -------------------------------------------------------------------------- */
+
+Contact *PhoneBook::getContacts() const { return ( Contact * ) _contacts; }
+
+int PhoneBook::getContactCount() const { return _contactCount; }
+
+/* -------------------------------------------------------------------------- */
 
 void PhoneBook::add() {
     std::string firstName;
@@ -49,12 +61,14 @@ void PhoneBook::search() {
     }
 }
 
+/* -------------------------------------------------------------------------- */
+
 std::ostream &operator<<( std::ostream &os, const PhoneBook &phoneBook ) {
     if ( !phoneBook.getContactCount() ) {
         std::cout << "Sadly, you don't have any friends..." << std::endl;
     }
 
-    char border('*');
+    char border( '*' );
 
     for ( int i = 0; i < phoneBook.getContactCount(); i++ ) {
         size_t headerWidth
@@ -87,3 +101,5 @@ std::ostream &operator<<( std::ostream &os, const PhoneBook &phoneBook ) {
     }
     return os;
 }
+
+/* -------------------------------------------------------------------------- */

@@ -1,7 +1,11 @@
 #include "Harl.hpp"
 
+/* -------------------------------------------------------------------------- */
+
 int const		  Harl::_levelCount = 4;
 std::string const Harl::_levelStr[] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+
+/* -------------------------------------------------------------------------- */
 
 void Harl::debug() {
 	std::cout
@@ -30,6 +34,8 @@ void Harl::error() {
 			  << std::endl;
 }
 
+/* -------------------------------------------------------------------------- */
+
 void Harl::complain( std::string level ) {
 	void ( Harl::*levelFun[] )( void )
 		= { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
@@ -41,3 +47,5 @@ void Harl::complain( std::string level ) {
 		}
 	}
 }
+
+/* -------------------------------------------------------------------------- */

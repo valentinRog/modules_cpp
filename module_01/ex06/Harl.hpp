@@ -17,6 +17,7 @@ private:
 
 public:
 	int	 get_level_index( std::string level );
+
 	void complain( std::string level );
 	void complainFilter( int code );
 };

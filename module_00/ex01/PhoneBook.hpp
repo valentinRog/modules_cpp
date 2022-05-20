@@ -17,13 +17,12 @@ private:
     int              _contactCount;
 
     void             add_contact( Contact contact );
-    void             print_line( char border = '*' );
 
 public:
     PhoneBook();
 
-    Contact *getContacts() const {return (Contact*)_contacts;}
-    int getContactCount() const { return _contactCount;}
+    Contact *getContacts() const;
+    int getContactCount() const;
 
     void add();
     void search();

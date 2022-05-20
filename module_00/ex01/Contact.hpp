@@ -31,6 +31,7 @@ public:
     std::string getDarkestSecret() const;
 
     size_t get_field_width() const;
+
     void   print_width( std::string str ) const;
     void   print_line() const;
 };

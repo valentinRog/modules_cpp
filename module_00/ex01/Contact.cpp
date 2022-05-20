@@ -1,6 +1,10 @@
 #include "Contact.hpp"
 
+/* -------------------------------------------------------------------------- */
+
 size_t Contact::_fieldWidth = 10;
+
+/* -------------------------------------------------------------------------- */
 
 Contact::Contact() {}
 
@@ -15,6 +19,8 @@ Contact::Contact( std::string firstName,
       _phoneNumber( phoneNumber ),
       _darkestSecret( darkestSecret ) {}
 
+/* -------------------------------------------------------------------------- */
+
 std::string Contact::getFirstName() const { return _firstName; }
 
 std::string Contact::getLastName() const { return _lastName; }
@@ -25,7 +31,11 @@ std::string Contact::getPhoneNumber() const { return _phoneNumber; }
 
 std::string Contact::getDarkestSecret() const { return _darkestSecret; }
 
+/* -------------------------------------------------------------------------- */
+
 size_t Contact::get_field_width() const { return _fieldWidth; }
+
+/* -------------------------------------------------------------------------- */
 
 void Contact::print_width( std::string str ) const {
     std::string tmp( str );
@@ -43,6 +53,8 @@ void Contact::print_line() const {
     print_width( _nickName );
 }
 
+/* -------------------------------------------------------------------------- */
+
 std::ostream &operator<<( std::ostream &os, const Contact &point ) {
     os << "first name: " << point.getFirstName() << std::endl;
     os << "last name: " << point.getLastName() << std::endl;
@@ -52,3 +64,5 @@ std::ostream &operator<<( std::ostream &os, const Contact &point ) {
 
     return os;
 }
+
+/* -------------------------------------------------------------------------- */
