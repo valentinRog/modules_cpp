@@ -7,7 +7,7 @@
 class Fixed {
 
 private:
-    int _raw;
+    int _rawBits;
 
     static const int _fractionalBits;
 
