@@ -15,7 +15,7 @@ public:
     Fixed();
     Fixed( Fixed const &other );
     Fixed( int const n );
-    Fixed( const float n );
+    Fixed( float const n );
     Fixed &operator=( Fixed const &other );
     ~Fixed();
 

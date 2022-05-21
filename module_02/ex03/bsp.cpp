@@ -20,10 +20,5 @@ bool bsp( Point const a, Point const b, Point const c, Point const p ) {
     Fixed w1 = ( aX * s1 + s4 * s2 - pX * s1 ) / ( s3 * s2 - ( bX - aX ) * s1 );
     Fixed w2 = ( s4 - w1 * s3 ) / s1;
 
-    std::cout << "w1=" << w1 << std::endl;
-    std::cout << "w2=" << w2 << std::endl;
-
-    std::cout << "sum=" << w1 + w2 << std::endl;
-
     return w1 > 0 && w2 > 0 && ( w1 + w2 ) < 1;
 }
