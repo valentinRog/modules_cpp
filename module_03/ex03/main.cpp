@@ -16,7 +16,6 @@ int	main(void)
 
 	// Constructors
 	DiamondTrap	diamondtrap(s4);
-	std::cout << std::endl;
 
 	// Repairs
 	diamondtrap.takeDamage(14);
@@ -52,6 +51,9 @@ int	main(void)
 	diamondtrap.beRepaired(20);
 	diamondtrap.attack(s2);
 
+	diamondtrap.whoAmI();
+
 	std::cout << std::endl;
+
 	return (0);
 }

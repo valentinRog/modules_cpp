@@ -21,6 +21,7 @@ public:
 
 	void attack(std::string const &target);
 
+    void whoAmI();
 };
 
 #endif
