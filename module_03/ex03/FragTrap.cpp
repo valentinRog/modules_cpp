@@ -1,50 +1,50 @@
-#include "FlagTrap.hpp"
+#include "FragTrap.hpp"
 
 /* -------------------------------------------------------------------------- */
 
-FlagTrap::FlagTrap() {
+FragTrap::FragTrap() {
     _hitPoints    = 100;
     _energyPoints = 50;
     _attackDamage = 20;
 
-    std::cout << "[FlagTrap] "
+    std::cout << "[FragTrap] "
               << "Default constructor called" << std::endl;
 }
 
-FlagTrap::FlagTrap( std::string const name ) {
+FragTrap::FragTrap( std::string const name ) {
     _name = name;
 
     _hitPoints    = 100;
     _energyPoints = 50;
     _attackDamage = 20;
 
-    std::cout << "[FlagTrap] "
+    std::cout << "[FragTrap] "
               << "Constructor called" << std::endl;
 }
 
-FlagTrap::FlagTrap( FlagTrap const &other ) : ClapTrap( other._name ) {
+FragTrap::FragTrap( FragTrap const &other ) : ClapTrap( other._name ) {
     *this = other;
-    std::cout << "[FlagTrap] "
+    std::cout << "[FragTrap] "
               << "Copy constructor called" << std::endl;
 }
 
-FlagTrap &FlagTrap::operator=( FlagTrap const &other ) {
+FragTrap &FragTrap::operator=( FragTrap const &other ) {
     ClapTrap::operator=( other );
 
-    std::cout << "[FlagTrap] "
+    std::cout << "[FragTrap] "
               << "Copy assignment operator called" << std::endl;
 
     return *this;
 }
 
-FlagTrap::~FlagTrap() {
-    std::cout << "[FlagTrap] "
+FragTrap::~FragTrap() {
+    std::cout << "[FragTrap] "
               << "Destructor called" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
 
-void FlagTrap::attack( const std::string &target ) {
+void FragTrap::attack( const std::string &target ) {
     if ( _energyPoints && _hitPoints ) {
         std::cout << _name << " 🏹 " << target << " (-" << _attackDamage
                   << "💚)" << std::endl;
@@ -55,13 +55,7 @@ void FlagTrap::attack( const std::string &target ) {
 
 /* -------------------------------------------------------------------------- */
 
-void FlagTrap::guardGate() {
-    if ( _hitPoints ) {
-        std::cout << "FlagTrap is now in the guate keeper mode" << std::endl;
-    }
-}
-
-void FlagTrap::highFivesGuys() {
+void FragTrap::highFivesGuys() {
     if ( _hitPoints ) {
         std::cout << "High five ?" << std::endl;
     }

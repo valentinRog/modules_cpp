@@ -1,0 +1,20 @@
+#ifndef FLAG_TRAP_HPP
+#define FLAG_TRAP_HPP
+
+#include "ClapTrap.hpp"
+
+class FragTrap : virtual public ClapTrap {
+
+public:
+	FragTrap();
+    FragTrap( std::string const name );
+    FragTrap( FragTrap const &other );
+    FragTrap &operator=( FragTrap const &other );
+    ~FragTrap();
+
+	void attack( const std::string &target );
+
+	void highFivesGuys();
+};
+
+#endif
