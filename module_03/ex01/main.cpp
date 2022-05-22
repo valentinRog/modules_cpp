@@ -2,17 +2,39 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-int	main(  )
-{
-	ScavTrap scavTrap("scavTrap");
+int main( void ) {
 
-	scavTrap.attack("anotherScavTrap");
-	scavTrap.takeDamage(9);
-	scavTrap.beRepaired(3);
-	scavTrap.takeDamage(2);
-	scavTrap.takeDamage(100);
-	scavTrap.beRepaired(20);
-	scavTrap.attack("anotherScavTrap");
+    ClapTrap claptrap( "robot1" );
+    ScavTrap scavtrap( "robot2" );
 
-	return 0;
+    std::cout << std::endl;
+
+    claptrap.attack( "robot2" );
+    scavtrap.takeDamage( 0 );
+    scavtrap.beRepaired( 18 );
+
+    std::cout << std::endl;
+
+    scavtrap.attack( "robot1" );
+    claptrap.takeDamage( 20 );
+    scavtrap.attack( "robot1" );
+    claptrap.takeDamage( 20 );
+    scavtrap.attack( "robot1" );
+    claptrap.beRepaired( 64 );
+
+    std::cout << std::endl;
+
+    scavtrap.guardGate();
+    scavtrap.attack( "robot1" );
+
+    std::cout << std::endl;
+
+    scavtrap.takeDamage( 100 );
+    scavtrap.takeDamage( 1 );
+    scavtrap.attack( "robot2" );
+    scavtrap.beRepaired( 200 );
+
+    std::cout << std::endl;
+
+    return ( 0 );
 }
