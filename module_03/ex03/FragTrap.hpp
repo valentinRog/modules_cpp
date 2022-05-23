@@ -12,7 +12,7 @@ public:
     FragTrap &operator=( FragTrap const &other );
     ~FragTrap();
 
-	void attack( const std::string &target );
+	void attack( std::string const &target );
 
 	void highFivesGuys();
 };

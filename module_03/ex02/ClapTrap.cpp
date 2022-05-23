@@ -6,8 +6,7 @@ ClapTrap::ClapTrap()
     : _hitPoints( 10 ),
       _energyPoints( 10 ),
       _attackDamage( 0 ) {
-    std::cout << "[ClapTrap] "
-              << "Default constructor called" << std::endl;
+    std::cout << "[ClapTrap] Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string const name )
@@ -15,15 +14,12 @@ ClapTrap::ClapTrap( std::string const name )
       _hitPoints( 10 ),
       _energyPoints( 10 ),
       _attackDamage( 0 ) {
-    std::cout << "[ClapTrap] "
-              << "Constructor called" << std::endl;
+    std::cout << "[ClapTrap] Constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( ClapTrap const &other ) {
     *this = other;
-
-    std::cout << "[ClapTrap] "
-              << "Copy constructor called" << std::endl;
+    std::cout << "[ClapTrap] Copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=( ClapTrap const &other ) {
@@ -31,25 +27,21 @@ ClapTrap &ClapTrap::operator=( ClapTrap const &other ) {
     _hitPoints    = other._hitPoints;
     _energyPoints = other._energyPoints;
     _attackDamage = other._attackDamage;
-
-    std::cout << "[ClapTrap] "
-              << "Copy assignment operator called" << std::endl;
+    std::cout << "[ClapTrap] Copy assignment operator called" << std::endl;
 
     return *this;
 }
 
 ClapTrap::~ClapTrap() {
-    std::cout << "[ClapTrap] "
-              << "Destructor called" << std::endl;
+    std::cout << "[ClapTrap] Destructor called" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
 
-void ClapTrap::attack( const std::string &target ) {
+void ClapTrap::attack( std::string const &target ) {
     if ( _energyPoints && _hitPoints ) {
         std::cout << _name << " 🔫 " << target << " (-" << _attackDamage << "💚)"
                   << std::endl;
-
         _energyPoints--;
     }
 }
@@ -57,7 +49,6 @@ void ClapTrap::attack( const std::string &target ) {
 void ClapTrap::takeDamage( unsigned int amount ) {
     if ( _hitPoints ) {
         std::cout << _name << " -" << amount << "💚" << std::endl;
-
         if ( amount <= _hitPoints ) {
             _hitPoints -= amount;
         } else {
@@ -70,7 +61,6 @@ void ClapTrap::takeDamage( unsigned int amount ) {
 void ClapTrap::beRepaired( unsigned int amount ) {
     if ( _energyPoints && _hitPoints ) {
         std::cout << _name << " +" << amount << "💚" << std::endl;
-
         _hitPoints += amount;
         _energyPoints--;
     }
