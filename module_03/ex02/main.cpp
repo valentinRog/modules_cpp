@@ -8,6 +8,8 @@ int main( void ) {
     ClapTrap claptrap( "robot1" );
     FragTrap fragTrap( "robot2" );
 
+    std::cout << fragTrap << std::endl;
+
     std::cout << std::endl;
 
     claptrap.attack( "robot2" );

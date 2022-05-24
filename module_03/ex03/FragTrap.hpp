@@ -3,7 +3,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : virtual public ClapTrap {
+class FragTrap : public ClapTrap {
 
 public:
 	FragTrap();
@@ -14,8 +14,10 @@ public:
 
 	void attack( std::string const &target );
 
-    virtual void guardGate();
+    void guardGate();
 	void highFivesGuys();
 };
+
+std::ostream &operator<<( std::ostream &os, FragTrap const &fragTrap );
 
 #endif

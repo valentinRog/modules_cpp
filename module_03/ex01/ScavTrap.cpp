@@ -58,3 +58,12 @@ void ScavTrap::guardGate() {
 }
 
 /* -------------------------------------------------------------------------- */
+
+std::ostream &operator<<( std::ostream &os, ScavTrap const &scavTrap ) {
+    os << "[ScavTrap] ";
+    scavTrap.print( os );
+
+    return os;
+}
+
+/* -------------------------------------------------------------------------- */

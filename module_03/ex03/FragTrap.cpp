@@ -63,3 +63,12 @@ void FragTrap::highFivesGuys() {
 }
 
 /* -------------------------------------------------------------------------- */
+
+std::ostream &operator<<( std::ostream &os, FragTrap const &fragTrap ) {
+    os << "[FragTrap] ";
+    fragTrap.print( os );
+
+    return os;
+}
+
+/* -------------------------------------------------------------------------- */

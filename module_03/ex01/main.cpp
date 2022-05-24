@@ -7,6 +7,8 @@ int main( void ) {
     ClapTrap claptrap( "robot1" );
     ScavTrap scavtrap( "robot2" );
 
+    std::cout << scavtrap << std::endl;
+
     std::cout << std::endl;
 
     claptrap.attack( "robot2" );

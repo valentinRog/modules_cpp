@@ -18,4 +18,6 @@ public:
 	void highFivesGuys();
 };
 
+std::ostream &operator<<( std::ostream &os, FragTrap const &fragTrap );
+
 #endif
