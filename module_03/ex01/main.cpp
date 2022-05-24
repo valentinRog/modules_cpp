@@ -1,42 +1,34 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include <iostream>
 
-int main( void ) {
-
-    ClapTrap claptrap( "robot1" );
-    ScavTrap scavtrap( "robot2" );
-
-    std::cout << scavtrap << std::endl;
+int main() {
+    ScavTrap robot1( "robot1" );
+    ClapTrap *robot2 = new ClapTrap( "robot2" );
 
     std::cout << std::endl;
-
-    claptrap.attack( "robot2" );
-    scavtrap.takeDamage( 0 );
-    scavtrap.beRepaired( 18 );
-
+    std::cout << robot1 << std::endl;
+    std::cout << *robot2 << std::endl;
     std::cout << std::endl;
 
-    scavtrap.attack( "robot1" );
-    claptrap.takeDamage( 20 );
-    scavtrap.attack( "robot1" );
-    claptrap.takeDamage( 20 );
-    scavtrap.attack( "robot1" );
-    claptrap.beRepaired( 64 );
-
+    robot1.attack( "robot2" );
+    robot2->takeDamage( 0 );
+    std::cout << robot1 << std::endl;
+    std::cout << *robot2 << std::endl;
     std::cout << std::endl;
 
-    scavtrap.guardGate();
-    scavtrap.attack( "robot1" );
-
+    robot1.beRepaired( 5 );
+    std::cout << robot1 << std::endl;
+    std::cout << *robot2 << std::endl;
     std::cout << std::endl;
 
-    scavtrap.takeDamage( 100 );
-    scavtrap.takeDamage( 1 );
-    scavtrap.attack( "robot2" );
-    scavtrap.beRepaired( 200 );
-
+    robot2->takeDamage( 20 );
+    robot2->takeDamage( 100 );
+    robot2->beRepaired( 200 );
+    std::cout << robot1 << std::endl;
+    std::cout << *robot2 << std::endl;
     std::cout << std::endl;
 
-    return ( 0 );
+    delete robot2;
+
+    return 0;
 }
