@@ -14,7 +14,7 @@ public:
 
     void attack( std::string const &target );
 
-    void guardGate();
+    virtual void guardGate();
 };
 
 #endif

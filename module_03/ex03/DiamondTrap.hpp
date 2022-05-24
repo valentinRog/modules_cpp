@@ -21,6 +21,8 @@ public:
 
 	void attack(std::string const &target);
 
+    void guardGate();
+
     void whoAmI();
 };
 

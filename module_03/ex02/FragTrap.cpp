@@ -4,8 +4,8 @@
 
 FragTrap::FragTrap() {
     _hitPoints    = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
+    _energyPoints = 100;
+    _attackDamage = 30;
 
     std::cout << "[FragTrap] Default constructor called" << std::endl;
 }
@@ -14,8 +14,8 @@ FragTrap::FragTrap( std::string const name ) {
     _name = name;
 
     _hitPoints    = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
+    _energyPoints = 100;
+    _attackDamage = 30;
 
     std::cout << "[FragTrap] Constructor called" << std::endl;
 }
@@ -41,7 +41,7 @@ FragTrap::~FragTrap() {
 
 void FragTrap::attack( std::string const &target ) {
     if ( _energyPoints && _hitPoints ) {
-        std::cout << _name << " 🏹 " << target << " (-" << _attackDamage
+        std::cout << "[FragTrap] " << _name << " 🏹 " << target << " (-" << _attackDamage
                   << "💚)" << std::endl;
 
         _energyPoints--;
@@ -52,13 +52,13 @@ void FragTrap::attack( std::string const &target ) {
 
 void FragTrap::guardGate() {
     if ( _hitPoints ) {
-        std::cout << "FragTrap is now in the guate keeper mode" << std::endl;
+        std::cout << "[FragTrap] Entering now in the guate keeper mode" << std::endl;
     }
 }
 
 void FragTrap::highFivesGuys() {
     if ( _hitPoints ) {
-        std::cout << "High five ?" << std::endl;
+        std::cout << "[FragTrap] High five ?" << std::endl;
     }
 }
 

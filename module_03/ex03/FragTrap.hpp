@@ -14,6 +14,7 @@ public:
 
 	void attack( std::string const &target );
 
+    virtual void guardGate();
 	void highFivesGuys();
 };
 

@@ -40,27 +40,29 @@ ClapTrap::~ClapTrap() {
 
 void ClapTrap::attack( std::string const &target ) {
     if ( _energyPoints && _hitPoints ) {
-        std::cout << _name << " 🔫 " << target << " (-" << _attackDamage << "💚)"
-                  << std::endl;
+        std::cout << "[ClapTrap] " << _name << " 🔫 " << target << " (-"
+                  << _attackDamage << "💚)" << std::endl;
         _energyPoints--;
     }
 }
 
 void ClapTrap::takeDamage( unsigned int amount ) {
     if ( _hitPoints ) {
-        std::cout << _name << " -" << amount << "💚" << std::endl;
+        std::cout << "[ClapTrap] " << _name << " -" << amount << "💚"
+                  << std::endl;
         if ( amount <= _hitPoints ) {
             _hitPoints -= amount;
         } else {
             _hitPoints = 0;
-            std::cout << _name << " 💀" << std::endl;
+            std::cout << "[ClapTrap] " << _name << " 💀" << std::endl;
         }
     }
 }
 
 void ClapTrap::beRepaired( unsigned int amount ) {
     if ( _energyPoints && _hitPoints ) {
-        std::cout << _name << " +" << amount << "💚" << std::endl;
+        std::cout << "[ClapTrap] " << _name << " +" << amount << "💚"
+                  << std::endl;
         _hitPoints += amount;
         _energyPoints--;
     }

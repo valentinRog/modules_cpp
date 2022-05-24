@@ -4,8 +4,8 @@
 
 ScavTrap::ScavTrap() {
     _hitPoints    = 100;
-    _energyPoints = 100;
-    _attackDamage = 30;
+    _energyPoints = 50;
+    _attackDamage = 20;
 
     std::cout << "[ScavTrap] Default constructor called" << std::endl;
 }
@@ -41,8 +41,8 @@ ScavTrap::~ScavTrap() {
 
 void ScavTrap::attack( std::string const &target ) {
     if ( _energyPoints && _hitPoints ) {
-        std::cout << _name << " 🏹 " << target << " (-" << _attackDamage
-                  << "💚)" << std::endl;
+        std::cout << "[ScavTrap] " << _name << " 🏹 " << target << " (-"
+                  << _attackDamage << "💚)" << std::endl;
 
         _energyPoints--;
     }
@@ -52,7 +52,8 @@ void ScavTrap::attack( std::string const &target ) {
 
 void ScavTrap::guardGate() {
     if ( _hitPoints ) {
-        std::cout << "ScavTrap is now in the guate keeper mode" << std::endl;
+        std::cout << "[ScavTrap] Entering now in the guate keeper mode"
+                  << std::endl;
     }
 }
 
