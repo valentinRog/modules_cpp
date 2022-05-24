@@ -3,11 +3,15 @@
 
 int main() {
     DiamondTrap robot1( "robot1" );
-    ClapTrap *robot2 = new ClapTrap( "robot2" );
+    ClapTrap *robot2 = new DiamondTrap( "robot2" );
 
     std::cout << std::endl;
     std::cout << robot1 << std::endl;
     std::cout << *robot2 << std::endl;
+    std::cout << std::endl;
+
+    robot1.highFivesGuys();
+    robot1.whoAmI();
     std::cout << std::endl;
 
     robot1.attack( "robot2" );

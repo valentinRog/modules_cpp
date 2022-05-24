@@ -24,6 +24,8 @@ public:
     void guardGate();
 
     void whoAmI();
+
+    void print(std::ostream &os) const;
 };
 
 std::ostream &operator<<( std::ostream &os, DiamondTrap const &diamondTrap );

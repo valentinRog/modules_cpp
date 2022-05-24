@@ -10,6 +10,9 @@ int main() {
     std::cout << *robot2 << std::endl;
     std::cout << std::endl;
 
+    robot1.highFivesGuys();
+    std::cout << std::endl;
+
     robot1.attack( "robot2" );
     robot2->takeDamage( 0 );
     std::cout << robot1 << std::endl;
