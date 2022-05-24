@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-    FragTrap robot1( "robot1" );
+    FragTrap  robot1( "robot1" );
     ClapTrap *robot2 = new FragTrap( "robot2" );
 
     std::cout << std::endl;

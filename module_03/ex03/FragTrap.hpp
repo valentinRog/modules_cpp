@@ -6,16 +6,16 @@
 class FragTrap : virtual public ClapTrap {
 
 public:
-	FragTrap();
+    FragTrap();
     FragTrap( std::string const name );
     FragTrap( FragTrap const &other );
     FragTrap &operator=( FragTrap const &other );
     ~FragTrap();
 
-	void attack( std::string const &target );
+    void attack( std::string const &target );
 
     void guardGate();
-	void highFivesGuys();
+    void highFivesGuys();
 };
 
 std::ostream &operator<<( std::ostream &os, FragTrap const &fragTrap );

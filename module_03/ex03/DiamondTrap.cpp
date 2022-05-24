@@ -30,7 +30,7 @@ DiamondTrap::DiamondTrap( DiamondTrap const &other )
 DiamondTrap &DiamondTrap::operator=( DiamondTrap const &other ) {
     FragTrap::operator=( other );
     ScavTrap::operator=( other );
-    _name             = other._name;
+    _name = other._name;
 
     std::cout << "[DiamondTrap] Copy assignment operator called" << std::endl;
 
@@ -66,15 +66,6 @@ void DiamondTrap::whoAmI() {
 
 /* -------------------------------------------------------------------------- */
 
-std::ostream &operator<<( std::ostream &os, DiamondTrap const &diamondTrap ) {
-    os << "[DiamondTrap] ";
-    diamondTrap.print( os );
-
-    return os;
-}
-
-/* -------------------------------------------------------------------------- */
-
 void DiamondTrap::print( std::ostream &os ) const {
     os << "{ ";
     os << "name: \"" << _name << "\", ";
@@ -83,3 +74,14 @@ void DiamondTrap::print( std::ostream &os ) const {
     os << "attackDamage: " << _attackDamage;
     os << " }";
 }
+
+/* -------------------------------------------------------------------------- */
+
+std::ostream &operator<<( std::ostream &os, DiamondTrap const &diamondTrap ) {
+    os << "[DiamondTrap] ";
+    diamondTrap.print( os );
+
+    return os;
+}
+
+/* -------------------------------------------------------------------------- */

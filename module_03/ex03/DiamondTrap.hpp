@@ -4,28 +4,28 @@
 #include <iostream>
 #include <string>
 
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class DiamondTrap: public ScavTrap, public FragTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 
 private:
-	std::string _name;
+    std::string _name;
 
 public:
-	DiamondTrap();
+    DiamondTrap();
     DiamondTrap( std::string const name );
     DiamondTrap( DiamondTrap const &other );
     DiamondTrap &operator=( DiamondTrap const &other );
     ~DiamondTrap();
 
-	void attack(std::string const &target);
+    void attack( std::string const &target );
 
     void guardGate();
 
     void whoAmI();
 
-    void print(std::ostream &os) const;
+    void print( std::ostream &os ) const;
 };
 
 std::ostream &operator<<( std::ostream &os, DiamondTrap const &diamondTrap );

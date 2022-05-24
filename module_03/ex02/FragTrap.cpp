@@ -41,8 +41,8 @@ FragTrap::~FragTrap() {
 
 void FragTrap::attack( std::string const &target ) {
     if ( _energyPoints && _hitPoints ) {
-        std::cout << "[FragTrap] " << _name << " 🏹 " << target << " (-" << _attackDamage
-                  << "💚)" << std::endl;
+        std::cout << "[FragTrap] " << _name << " 🏹 " << target << " (-"
+                  << _attackDamage << "💚)" << std::endl;
 
         _energyPoints--;
     }
@@ -52,14 +52,13 @@ void FragTrap::attack( std::string const &target ) {
 
 void FragTrap::guardGate() {
     if ( _hitPoints ) {
-        std::cout << "[FragTrap] Entering now in the guate keeper mode" << std::endl;
+        std::cout << "[FragTrap] Entering now in the guate keeper mode"
+                  << std::endl;
     }
 }
 
 void FragTrap::highFivesGuys() {
-    if ( _hitPoints ) {
-        std::cout << "[FragTrap] High five ?" << std::endl;
-    }
+    if ( _hitPoints ) { std::cout << "[FragTrap] High five ?" << std::endl; }
 }
 
 /* -------------------------------------------------------------------------- */
