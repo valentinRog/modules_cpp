@@ -21,8 +21,6 @@ public:
 
     void attack( std::string const &target );
 
-    void guardGate();
-
     void whoAmI();
 
     void print( std::ostream &os ) const;

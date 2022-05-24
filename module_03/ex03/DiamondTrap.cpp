@@ -49,15 +49,6 @@ void DiamondTrap::attack( std::string const &target ) {
 
 /* -------------------------------------------------------------------------- */
 
-void DiamondTrap::guardGate() {
-    if ( _hitPoints ) {
-        std::cout << "[DiamondTrap] Entering now in the guate keeper mode"
-                  << std::endl;
-    }
-}
-
-/* -------------------------------------------------------------------------- */
-
 void DiamondTrap::whoAmI() {
     std::cout << "[DiamondTrap] "
               << "I'am " << _name << " and my grandmother is "
