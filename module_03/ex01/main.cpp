@@ -3,7 +3,7 @@
 
 int main() {
     ScavTrap  robot1( "robot1" );
-    ClapTrap *robot2 = new ClapTrap( "robot2" );
+    ClapTrap *robot2 = new ScavTrap( "robot2" );
 
     std::cout << std::endl;
     std::cout << robot1 << std::endl;

@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap() {
 }
 
 DiamondTrap::DiamondTrap( std::string const name )
-    : ClapTrap( name + "_clap_trap" ) {
+    : ClapTrap( name + "_clap_name" ) {
     _name         = name;
     _hitPoints    = FragTrap::_hitPoints;
     _energyPoints = ScavTrap::_energyPoints;
