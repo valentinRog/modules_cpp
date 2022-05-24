@@ -1,19 +1,32 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
-int	main(  )
-{
-	ClapTrap clapTrap("robot1");
+int main() {
+    ClapTrap robot1( "robot1" );
+    ClapTrap robot2( "robot2" );
 
-	std::cout << clapTrap << std::endl;
+    std::cout << std::endl;
+    std::cout << robot1 << std::endl;
+    std::cout << robot2 << std::endl;
+    std::cout << std::endl;
 
-	clapTrap.attack("robot2");
-	clapTrap.takeDamage(9);
-	clapTrap.beRepaired(3);
-	clapTrap.takeDamage(2);
-	clapTrap.takeDamage(100);
-	clapTrap.beRepaired(20);
-	clapTrap.attack("robot3");
+    robot1.attack( "robot2" );
+    robot2.takeDamage( 0 );
+    std::cout << robot1 << std::endl;
+    std::cout << robot2 << std::endl;
+    std::cout << std::endl;
 
-	return 0;
+    robot1.beRepaired( 5 );
+    std::cout << robot1 << std::endl;
+    std::cout << robot2 << std::endl;
+    std::cout << std::endl;
+
+    robot2.takeDamage( 20 );
+    robot2.takeDamage( 100 );
+    robot2.beRepaired( 200 );
+    std::cout << robot1 << std::endl;
+    std::cout << robot2 << std::endl;
+    std::cout << std::endl;
+
+    return 0;
 }
