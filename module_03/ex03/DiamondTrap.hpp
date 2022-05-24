@@ -26,4 +26,6 @@ public:
     void whoAmI();
 };
 
+std::ostream &operator<<( std::ostream &os, DiamondTrap const &diamondTrap );
+
 #endif

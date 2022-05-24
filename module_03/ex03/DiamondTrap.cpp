@@ -63,3 +63,12 @@ void DiamondTrap::whoAmI() {
 }
 
 /* -------------------------------------------------------------------------- */
+
+std::ostream &operator<<( std::ostream &os, DiamondTrap const &diamondTrap ) {
+    os << "[DiamondTrap] ";
+    diamondTrap.print( os );
+
+    return os;
+}
+
+/* -------------------------------------------------------------------------- */
