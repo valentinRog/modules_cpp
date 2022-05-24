@@ -69,3 +69,23 @@ void ClapTrap::beRepaired( unsigned int amount ) {
 }
 
 /* -------------------------------------------------------------------------- */
+
+void ClapTrap::print( std::ostream &os ) const {
+    os << "{ ";
+    os << "name: \"" << _name << "\", ";
+    os << "hitPoints: " << _hitPoints << ", ";
+    os << "energyPoints: " << _energyPoints << ", ";
+    os << "attackDamage: " << _attackDamage;
+    os << " }";
+}
+
+/* -------------------------------------------------------------------------- */
+
+std::ostream &operator<<( std::ostream &os, ClapTrap const &clapTrap ) {
+    os << "[ClapTrap] ";
+    clapTrap.print( os );
+
+    return os;
+}
+
+/* -------------------------------------------------------------------------- */

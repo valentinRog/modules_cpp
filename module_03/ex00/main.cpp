@@ -5,6 +5,8 @@ int	main(  )
 {
 	ClapTrap clapTrap("robot1");
 
+	std::cout << clapTrap << std::endl;
+
 	clapTrap.attack("robot2");
 	clapTrap.takeDamage(9);
 	clapTrap.beRepaired(3);
