@@ -24,7 +24,7 @@ public:
     void         takeDamage( unsigned int amount );
     void         beRepaired( unsigned int amount );
 
-    void print( std::ostream &os ) const;
+    virtual void print( std::ostream &os ) const;
 };
 
 std::ostream &operator<<( std::ostream &os, ClapTrap const &ClapTrap );

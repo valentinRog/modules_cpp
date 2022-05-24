@@ -13,7 +13,6 @@ protected:
     unsigned int _energyPoints;
     unsigned int _attackDamage;
 
-
 public:
     ClapTrap();
     ClapTrap( std::string const name );
@@ -22,10 +21,10 @@ public:
     virtual ~ClapTrap();
 
     virtual void attack( std::string const &target );
-    void takeDamage( unsigned int amount );
-    void beRepaired( unsigned int amount );
+    void         takeDamage( unsigned int amount );
+    void         beRepaired( unsigned int amount );
 
-    virtual void print(std::ostream &os) const;
+    virtual void print( std::ostream &os ) const;
 };
 
 std::ostream &operator<<( std::ostream &os, ClapTrap const &ClapTrap );

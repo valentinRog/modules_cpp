@@ -4,7 +4,7 @@ SRC = $(wildcard *.cpp)
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Wshadow  -Wno-shadow
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-Wshadow -Wno-shadow
 
 OBJ = $(SRC:.cpp=.o)
 
