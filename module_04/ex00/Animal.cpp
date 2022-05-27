@@ -3,6 +3,7 @@
 /* -------------------------------------------------------------------------- */
 
 Animal::Animal() {
+    _type = "Animal";
     std::cout << "[Animal] Default constructor called" << std::endl;
 }
 
@@ -22,6 +23,26 @@ Animal::~Animal() { std::cout << "[Animal] Destructor called" << std::endl; }
 
 /* -------------------------------------------------------------------------- */
 
+std::string const &Animal::getType() const { return _type; }
+
+/* -------------------------------------------------------------------------- */
+
 void Animal::makeSound() const {}
+
+/* -------------------------------------------------------------------------- */
+
+void Animal::print(std::ostream &os) const {
+    os << "[Animal] ";
+    os << "{ ";
+    os << "type: " << "\"" << _type << "\"";
+    os << " }";
+}
+
+/* -------------------------------------------------------------------------- */
+
+std::ostream &operator<<( std::ostream &os, Animal const & animal) {
+    animal.print(os);
+    return os;
+}
 
 /* -------------------------------------------------------------------------- */
