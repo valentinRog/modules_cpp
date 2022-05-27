@@ -4,28 +4,39 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main()
-{
-Animal* dog = new Dog();
-Animal* cat = new Cat();
+int main() {
+    Animal *dog = new Dog();
+    std::cout << std::endl;
 
-dog->addIdea("yo");
-dog->addIdea("les");
-dog->addIdea("fdp");
-dog->addIdea("haha");
+    dog->addIdea( "dog idea #1" );
+    dog->addIdea( "dog idea #2" );
+    dog->addIdea( "dog idea #3" );
+    dog->addIdea( "dog idea #4" );
 
-Dog dog1;
-dog1.addIdea("yo");
-Dog dog2(dog1);
-dog2 = dog1;
-dog2.addIdea("yo");
+    std::cout << *dog << std::endl;
+    std::cout << std::endl;
 
-std::cout << *dog << std::endl;
-std::cout << dog1 << std::endl;
-std::cout << dog2 << std::endl;
+    delete dog;
+    std::cout << std::endl;
 
-delete dog;
-delete cat;
+	Cat cat1;
+	Cat cat2;
+	std::cout << std::endl;
 
-return 0;
+	cat1.addIdea("cat1 idea #1");
+	cat1.addIdea("cat1 idea #2");
+	cat2.addIdea("cat2 idea #1");
+
+	std::cout << cat1 << std::endl;
+	std::cout << cat2 << std::endl;
+	std::cout << std::endl;
+
+	cat2 = cat1;
+	std::cout << std::endl;
+
+	std::cout << cat1 << std::endl;
+	std::cout << cat2 << std::endl;
+	std::cout << std::endl;
+
+    return 0;
 }

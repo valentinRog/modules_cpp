@@ -31,17 +31,22 @@ void Animal::makeSound() const {}
 
 /* -------------------------------------------------------------------------- */
 
-void Animal::print(std::ostream &os) const {
+void Animal::addIdea( std::string const &idea ) { ( void ) idea; }
+
+/* -------------------------------------------------------------------------- */
+
+void Animal::print( std::ostream &os ) const {
     os << "[Animal] ";
     os << "{ ";
-    os << "type: " << "\"" << _type << "\"";
+    os << "type: "
+       << "\"" << _type << "\"";
     os << " }";
 }
 
 /* -------------------------------------------------------------------------- */
 
-std::ostream &operator<<( std::ostream &os, Animal const & animal) {
-    animal.print(os);
+std::ostream &operator<<( std::ostream &os, Animal const &animal ) {
+    animal.print( os );
     return os;
 }
 

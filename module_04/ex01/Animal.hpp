@@ -19,7 +19,7 @@ public:
 
     virtual void makeSound() const;
 
-    virtual void addIdea(std::string const &idea) = 0;
+    virtual void addIdea(std::string const &idea);
 
     virtual void print(std::ostream &os) const;
 };
