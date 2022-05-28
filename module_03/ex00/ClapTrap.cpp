@@ -17,9 +17,9 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap( std::string const &name )
     : _name( name ),
-      _hitPoints( 10 ),
-      _energyPoints( 10 ),
-      _attackDamage( 0 ) {
+      _hitPoints( _defaultHitPoints ),
+      _energyPoints( _defaultEnergyPoints ),
+      _attackDamage( _defaultAttackDamage ) {
     std::cout << "[ClapTrap] Constructor called" << std::endl;
 }
 
