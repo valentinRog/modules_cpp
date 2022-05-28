@@ -7,15 +7,23 @@
 class ClapTrap {
 
 protected:
+    static unsigned int const _defaultHitPoints;
+    static unsigned int const _defaultEnergyPoints;
+    static unsigned int const _defaultAttackDamage;
+
     std::string _name;
 
     unsigned int _hitPoints;
     unsigned int _energyPoints;
     unsigned int _attackDamage;
 
+
 public:
     ClapTrap();
     ClapTrap( std::string const name );
+    ClapTrap( unsigned int      hitPoints,
+              unsigned int      energyPoints,
+              unsigned int      attackDamage);
     ClapTrap( ClapTrap const &other );
     ClapTrap &operator=( ClapTrap const &other );
     virtual ~ClapTrap();

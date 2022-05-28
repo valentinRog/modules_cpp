@@ -2,21 +2,24 @@
 
 /* -------------------------------------------------------------------------- */
 
-ScavTrap::ScavTrap() {
-    _hitPoints    = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
+unsigned int const ScavTrap::_defaultHitPoints    = 100;
+unsigned int const ScavTrap::_defaultEnergyPoints = 50;
+unsigned int const ScavTrap::_defaultAttackDamage = 20;
 
+/* -------------------------------------------------------------------------- */
+
+ScavTrap::ScavTrap()
+    : ClapTrap( _defaultHitPoints,
+                _defaultEnergyPoints,
+                _defaultAttackDamage ) {
     std::cout << "[ScavTrap] Default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string const name ) {
+ScavTrap::ScavTrap( std::string const name )
+    : ClapTrap( _defaultHitPoints,
+                _defaultEnergyPoints,
+                _defaultAttackDamage ) {
     _name = name;
-
-    _hitPoints    = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
-
     std::cout << "[ScavTrap] Constructor called" << std::endl;
 }
 

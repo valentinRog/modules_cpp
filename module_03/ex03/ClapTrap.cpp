@@ -2,10 +2,16 @@
 
 /* -------------------------------------------------------------------------- */
 
+unsigned int const ClapTrap::_defaultHitPoints    = 10;
+unsigned int const ClapTrap::_defaultEnergyPoints = 10;
+unsigned int const ClapTrap::_defaultAttackDamage = 0;
+
+/* -------------------------------------------------------------------------- */
+
 ClapTrap::ClapTrap()
-    : _hitPoints( 10 ),
-      _energyPoints( 10 ),
-      _attackDamage( 0 ) {
+    : _hitPoints( _defaultHitPoints ),
+      _energyPoints( _defaultEnergyPoints ),
+      _attackDamage( _defaultAttackDamage ) {
     std::cout << "[ClapTrap] Default constructor called" << std::endl;
 }
 
@@ -14,6 +20,15 @@ ClapTrap::ClapTrap( std::string const name )
       _hitPoints( 10 ),
       _energyPoints( 10 ),
       _attackDamage( 0 ) {
+    std::cout << "[ClapTrap] Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap( unsigned int      hitPoints,
+                    unsigned int      energyPoints,
+                    unsigned int      attackDamage)
+    : _hitPoints( hitPoints ),
+      _energyPoints( energyPoints ),
+      _attackDamage( attackDamage ){
     std::cout << "[ClapTrap] Constructor called" << std::endl;
 }
 

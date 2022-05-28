@@ -2,20 +2,19 @@
 
 /* -------------------------------------------------------------------------- */
 
-DiamondTrap::DiamondTrap() {
-    _hitPoints    = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;
-
-    std::cout << "[DiamondTrap] Default constructor called" << std::endl;
+DiamondTrap::DiamondTrap()
+    : ClapTrap( FragTrap::_defaultHitPoints,
+                ScavTrap::_defaultEnergyPoints,
+                FragTrap::_defaultAttackDamage ) {
+    std::cout << "[DiamondTrap] default constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap( std::string const name )
-    : ClapTrap( name + "_clap_name" ) {
-    _name         = name;
-    _hitPoints    = FragTrap::_hitPoints;
-    _energyPoints = ScavTrap::_energyPoints;
-    _attackDamage = FragTrap::_attackDamage;
+    : ClapTrap( FragTrap::_defaultHitPoints,
+                ScavTrap::_defaultEnergyPoints,
+                FragTrap::_defaultAttackDamage ) {
+    _name           = name;
+    ClapTrap::_name = name + "_clap_name";
     std::cout << "[DiamondTrap] Constructor called" << std::endl;
 }
 
@@ -30,7 +29,7 @@ DiamondTrap::DiamondTrap( DiamondTrap const &other )
 DiamondTrap &DiamondTrap::operator=( DiamondTrap const &other ) {
     FragTrap::operator=( other );
     ScavTrap::operator=( other );
-    _name = other._name;
+    _name             = other._name;
 
     std::cout << "[DiamondTrap] Copy assignment operator called" << std::endl;
 

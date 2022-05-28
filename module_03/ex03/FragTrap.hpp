@@ -5,6 +5,11 @@
 
 class FragTrap : virtual public ClapTrap {
 
+protected:
+    static unsigned int const _defaultHitPoints;
+    static unsigned int const _defaultEnergyPoints;
+    static unsigned int const _defaultAttackDamage;
+
 public:
     FragTrap();
     FragTrap( std::string const name );
