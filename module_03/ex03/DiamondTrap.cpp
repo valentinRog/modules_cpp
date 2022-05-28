@@ -9,12 +9,12 @@ DiamondTrap::DiamondTrap()
     std::cout << "[DiamondTrap] default constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap( std::string const name )
-    : ClapTrap( FragTrap::_defaultHitPoints,
+DiamondTrap::DiamondTrap( std::string const &name )
+    : ClapTrap( name + "_clap_name",
+                FragTrap::_defaultHitPoints,
                 ScavTrap::_defaultEnergyPoints,
                 FragTrap::_defaultAttackDamage ) {
-    _name           = name;
-    ClapTrap::_name = name + "_clap_name";
+    _name = name;
     std::cout << "[DiamondTrap] Constructor called" << std::endl;
 }
 
@@ -27,8 +27,7 @@ DiamondTrap::DiamondTrap( DiamondTrap const &other )
 }
 
 DiamondTrap &DiamondTrap::operator=( DiamondTrap const &other ) {
-    FragTrap::operator=( other );
-    ScavTrap::operator=( other );
+    ClapTrap::operator=( other );
     _name             = other._name;
 
     std::cout << "[DiamondTrap] Copy assignment operator called" << std::endl;
@@ -68,9 +67,7 @@ void DiamondTrap::print( std::ostream &os ) const {
 /* -------------------------------------------------------------------------- */
 
 std::ostream &operator<<( std::ostream &os, DiamondTrap const &diamondTrap ) {
-    os << "[DiamondTrap] ";
     diamondTrap.print( os );
-
     return os;
 }
 

@@ -15,11 +15,11 @@ FragTrap::FragTrap()
     std::cout << "[FragTrap] Default constructor called" << std::endl;
 }
 
-FragTrap::FragTrap( std::string const name )
+FragTrap::FragTrap( std::string const &name )
     : ClapTrap( _defaultHitPoints,
                 _defaultEnergyPoints,
-                _defaultAttackDamage) {
-                    _name = name;
+                _defaultAttackDamage ) {
+    _name = name;
     std::cout << "[FragTrap] Constructor called" << std::endl;
 }
 
@@ -67,9 +67,7 @@ void FragTrap::highFivesGuys() {
 /* -------------------------------------------------------------------------- */
 
 std::ostream &operator<<( std::ostream &os, FragTrap const &fragTrap ) {
-    os << "[FragTrap] ";
     fragTrap.print( os );
-
     return os;
 }
 

@@ -3,7 +3,7 @@
 
 int main() {
     DiamondTrap robot1( "robot1" );
-    ClapTrap   *robot2 = new DiamondTrap( "robot2" );
+    ClapTrap *  robot2 = new DiamondTrap( "robot2" );
 
     std::cout << std::endl;
     std::cout << robot1 << std::endl;

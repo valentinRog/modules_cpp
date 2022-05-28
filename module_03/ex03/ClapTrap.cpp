@@ -15,7 +15,7 @@ ClapTrap::ClapTrap()
     std::cout << "[ClapTrap] Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string const name )
+ClapTrap::ClapTrap( std::string const &name )
     : _name( name ),
       _hitPoints( 10 ),
       _energyPoints( 10 ),
@@ -23,12 +23,23 @@ ClapTrap::ClapTrap( std::string const name )
     std::cout << "[ClapTrap] Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( unsigned int      hitPoints,
-                    unsigned int      energyPoints,
-                    unsigned int      attackDamage)
+ClapTrap::ClapTrap( unsigned int hitPoints,
+                    unsigned int energyPoints,
+                    unsigned int attackDamage )
     : _hitPoints( hitPoints ),
       _energyPoints( energyPoints ),
-      _attackDamage( attackDamage ){
+      _attackDamage( attackDamage ) {
+    std::cout << "[ClapTrap] Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap( std::string const &name,
+                    unsigned int       hitPoints,
+                    unsigned int       energyPoints,
+                    unsigned int       attackDamage )
+    : _name( name ),
+      _hitPoints( hitPoints ),
+      _energyPoints( energyPoints ),
+      _attackDamage( attackDamage ) {
     std::cout << "[ClapTrap] Constructor called" << std::endl;
 }
 
@@ -97,9 +108,7 @@ void ClapTrap::print( std::ostream &os ) const {
 /* -------------------------------------------------------------------------- */
 
 std::ostream &operator<<( std::ostream &os, ClapTrap const &clapTrap ) {
-    os << "[ClapTrap] ";
     clapTrap.print( os );
-
     return os;
 }
 

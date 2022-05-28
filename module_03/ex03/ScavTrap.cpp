@@ -15,7 +15,7 @@ ScavTrap::ScavTrap()
     std::cout << "[ScavTrap] Default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap( std::string const name )
+ScavTrap::ScavTrap( std::string const &name )
     : ClapTrap( _defaultHitPoints,
                 _defaultEnergyPoints,
                 _defaultAttackDamage ) {
@@ -63,9 +63,7 @@ void ScavTrap::guardGate() {
 /* -------------------------------------------------------------------------- */
 
 std::ostream &operator<<( std::ostream &os, ScavTrap const &scavTrap ) {
-    os << "[ScavTrap] ";
     scavTrap.print( os );
-
     return os;
 }
 

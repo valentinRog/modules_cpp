@@ -3,11 +3,16 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
+
+protected:
+    static unsigned int const _defaultHitPoints;
+    static unsigned int const _defaultEnergyPoints;
+    static unsigned int const _defaultAttackDamage;
 
 public:
     ScavTrap();
-    ScavTrap( std::string const name );
+    ScavTrap( std::string const &name );
     ScavTrap( ScavTrap const &other );
     ScavTrap &operator=( ScavTrap const &other );
     ~ScavTrap();

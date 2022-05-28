@@ -12,7 +12,7 @@ protected:
 
 public:
     ScavTrap();
-    ScavTrap( std::string const name );
+    ScavTrap( std::string const &name );
     ScavTrap( ScavTrap const &other );
     ScavTrap &operator=( ScavTrap const &other );
     ~ScavTrap();

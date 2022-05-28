@@ -3,11 +3,16 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class FragTrap : virtual public ClapTrap {
+
+protected:
+    static unsigned int const _defaultHitPoints;
+    static unsigned int const _defaultEnergyPoints;
+    static unsigned int const _defaultAttackDamage;
 
 public:
     FragTrap();
-    FragTrap( std::string const name );
+    FragTrap( std::string const &name );
     FragTrap( FragTrap const &other );
     FragTrap &operator=( FragTrap const &other );
     ~FragTrap();

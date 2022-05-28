@@ -12,7 +12,7 @@ protected:
 
 public:
     FragTrap();
-    FragTrap( std::string const name );
+    FragTrap( std::string const &name );
     FragTrap( FragTrap const &other );
     FragTrap &operator=( FragTrap const &other );
     ~FragTrap();
