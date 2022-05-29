@@ -82,6 +82,10 @@ void Bureaucrat::print( std::ostream &os ) const {
 
 /* -------------------------------------------------------------------------- */
 
+bool Bureaucrat::signForm( Form &form ) const { return form.beSigned( *this ); }
+
+/* -------------------------------------------------------------------------- */
+
 std::ostream &operator<<( std::ostream &os, Bureaucrat const &bureaucrat ) {
     bureaucrat.print( os );
     return os;

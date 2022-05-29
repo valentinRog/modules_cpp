@@ -5,6 +5,10 @@
 #include <stdexcept>
 #include <string>
 
+#include "Form.hpp"
+
+class Form;
+
 class Bureaucrat {
 
 private:
@@ -40,6 +44,8 @@ public:
     void check_grade() const;
 
     void print( std::ostream &os ) const;
+
+    bool signForm( Form &form ) const;
 };
 
 std::ostream &operator<<( std::ostream &os, Bureaucrat const &bureaucrat );
