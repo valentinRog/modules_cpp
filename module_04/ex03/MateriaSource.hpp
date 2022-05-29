@@ -8,7 +8,7 @@
 class MateriaSource : public IMateriaSource {
 
 private:
-    const static int _nMaterias = 4;
+    static int const _nMaterias = 4;
     AMateria *       _materias[_nMaterias];
 
 public:
