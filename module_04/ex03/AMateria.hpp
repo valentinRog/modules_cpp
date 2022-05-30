@@ -25,6 +25,11 @@ public:
     virtual AMateria * clone() const = 0;
 
     virtual void       use( ICharacter &target );
+
+    void print(std::ostream &os) const;
 };
+
+std::ostream &operator<<( std::ostream &       os,
+                          AMateria const &materia );
 
 #endif

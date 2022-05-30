@@ -19,7 +19,8 @@ public:
 
     virtual void      learnMateria( AMateria *materia );
     virtual AMateria *createMateria( std::string const &type );
-    void              printMaterias() const;
+
+    void print( std::ostream &os ) const;
 };
 
 #endif

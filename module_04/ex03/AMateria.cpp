@@ -24,3 +24,19 @@ std::string const &AMateria::getType() const { return _type; }
 void AMateria::use( ICharacter &target ) { ( void ) target; }
 
 /* -------------------------------------------------------------------------- */
+
+void AMateria::print( std::ostream &os ) const {
+    os << "{ ";
+    os << "type: "
+       << "\"" << _type << "\"";
+    os << " }";
+}
+
+/* -------------------------------------------------------------------------- */
+
+std::ostream &operator<<( std::ostream &os, AMateria const &materia ) {
+    materia.print( os );
+    return os;
+}
+
+/* -------------------------------------------------------------------------- */

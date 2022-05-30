@@ -44,6 +44,17 @@ AMateria *MateriaSource::createMateria( std::string const &type ) {
     return NULL;
 }
 
-void MateriaSource::printMaterias() const {}
+void MateriaSource::print( std::ostream &os ) const {
+    bool printed = false;
+    os << "[";
+    for ( int i = 0; i < _nMaterias; i++ ) {
+        if ( _materias[i] ) {
+            if ( printed ) { os << ","; }
+            os << " " << *(_materias[i]) << " ";
+            printed = true;
+        }
+    }
+    os << "]";
+}
 
 /* -------------------------------------------------------------------------- */

@@ -9,6 +9,8 @@ int main() {
     src->learnMateria( new Ice() );
     src->learnMateria( new Cure() );
 
+    std::cout << *src << std::endl;
+
     ICharacter *me = new Character( "me" );
 
     AMateria *tmp;
