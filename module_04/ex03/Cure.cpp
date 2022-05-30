@@ -2,16 +2,22 @@
 
 /* -------------------------------------------------------------------------- */
 
-Cure::Cure() : AMateria( "cure" ) {}
+Cure::Cure() : AMateria( "cure" ) {
+    std::cout << "[Cure] Default constructor called" << std::endl;
+}
 
-Cure::Cure( Cure const &other ) : AMateria() { *this = other; }
+Cure::Cure( Cure const &other ) : AMateria() {
+    *this = other;
+    std::cout << "[Cure] Copy constructor called" << std::endl;
+}
 
 Cure &Cure::operator=( Cure const &other ) {
     AMateria::operator=( other );
+    std::cout << "[Cure] Copy assignment operator called" << std::endl;
     return *this;
 }
 
-Cure::~Cure() {}
+Cure::~Cure() { std::cout << "[Cure] Destructor called" << std::endl; }
 
 /* -------------------------------------------------------------------------- */
 

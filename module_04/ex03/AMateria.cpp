@@ -2,18 +2,29 @@
 
 /* -------------------------------------------------------------------------- */
 
-AMateria::AMateria() {}
+AMateria::AMateria() {
+    std::cout << "[AMateria] Default constructor called" << std::endl;
+}
 
-AMateria::AMateria( std::string const &type ) : _type( type ) {}
+AMateria::AMateria( std::string const &type ) : _type( type ) {
+    std::cout << "[AMateria] Constructor called" << std::endl;
+}
 
-AMateria::AMateria( AMateria const &other ) { *this = other; }
+AMateria::AMateria( AMateria const &other ) {
+    *this = other;
+    std::cout << "[AMateria] Copy constructor called" << std::endl;
+}
 
 AMateria &AMateria::operator=( AMateria const &other ) {
     _type = other._type;
+    std::cout << "[AMateria] Copy assignment operator called" << std::endl;
+
     return *this;
 }
 
-AMateria::~AMateria() {}
+AMateria::~AMateria() {
+    std::cout << "[AMateria] Destructor called" << std::endl;
+}
 
 /* -------------------------------------------------------------------------- */
 

@@ -3,10 +3,16 @@
 /* -------------------------------------------------------------------------- */
 
 MateriaSource::MateriaSource() {
-    for ( int i = 0; i < _nMaterias; i++ ) { _materias[i] = NULL; }
+    for ( int i = 0; i < _nMaterias; i++ ) {
+        _materias[i] = NULL;
+        std::cout << "[MateriaSource] Default constructor called" << std::endl;
+    }
 }
 
-MateriaSource::MateriaSource( MateriaSource const &other ) { *this = other; }
+MateriaSource::MateriaSource( MateriaSource const &other ) {
+    *this = other;
+    std::cout << "[MateriaSource] Copy constructor called" << std::endl;
+}
 
 MateriaSource &MateriaSource::operator=( MateriaSource const &other ) {
     for ( int i = 0; i < _nMaterias; i++ ) {
@@ -17,6 +23,7 @@ MateriaSource &MateriaSource::operator=( MateriaSource const &other ) {
             _materias[i] = NULL;
         }
     }
+    std::cout << "[MateriaSource] Copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -24,6 +31,7 @@ MateriaSource::~MateriaSource() {
     for ( int i = 0; i < _nMaterias; i++ ) {
         if ( _materias[i] ) { delete _materias[i]; }
     }
+    std::cout << "[MateriaSource] Destructor called" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -50,7 +58,7 @@ void MateriaSource::print( std::ostream &os ) const {
     for ( int i = 0; i < _nMaterias; i++ ) {
         if ( _materias[i] ) {
             if ( printed ) { os << ","; }
-            os << " " << *(_materias[i]) << " ";
+            os << " " << *( _materias[i] ) << " ";
             printed = true;
         }
     }

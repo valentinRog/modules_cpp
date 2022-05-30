@@ -2,16 +2,22 @@
 
 /* -------------------------------------------------------------------------- */
 
-Ice::Ice() : AMateria( "ice" ) {}
+Ice::Ice() : AMateria( "ice" ) {
+    std::cout << "[Ice] Default constructor called" << std::endl;
+}
 
-Ice::Ice( Ice const &other ) : AMateria() { *this = other; }
+Ice::Ice( Ice const &other ) : AMateria() {
+    *this = other;
+    std::cout << "[Ice] Copy constructor called" << std::endl;
+}
 
 Ice &Ice::operator=( Ice const &other ) {
     AMateria::operator=( other );
+    std::cout << "[Ice] Copy assignment operator called" << std::endl;
     return *this;
 }
 
-Ice::~Ice() {}
+Ice::~Ice() { std::cout << "[Ice] Destructor called" << std::endl; }
 
 /* -------------------------------------------------------------------------- */
 

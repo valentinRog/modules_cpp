@@ -4,13 +4,20 @@
 
 Character::Character() {
     for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = NULL; }
+    std::cout << "[Character] Default constructor called" << std::endl;
 }
 
 Character::Character( std::string const &name ) : _name( name ) {
-    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = NULL; }
+    for ( int i = 0; i < _nSlots; i++ ) {
+        _inventory[i] = NULL;
+        std::cout << "[Character] Constructor called" << std::endl;
+    }
 }
 
-Character::Character( Character const &other ) { *this = other; }
+Character::Character( Character const &other ) {
+    *this = other;
+    std::cout << "[Character] Copy constructor called" << std::endl;
+}
 
 Character &Character::operator=( Character const &other ) {
     _name = other._name;
@@ -18,6 +25,7 @@ Character &Character::operator=( Character const &other ) {
         if ( _inventory[i] ) { delete _inventory[i]; }
         _inventory[i] = other._inventory[i];
     }
+    std::cout << "[Character] Copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -25,6 +33,7 @@ Character::~Character() {
     for ( int i = 0; i < _nSlots; i++ ) {
         if ( _inventory[i] ) { delete _inventory[i]; }
     }
+    std::cout << "[Character] Destructor called" << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
