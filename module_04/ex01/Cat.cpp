@@ -18,7 +18,6 @@ Cat &Cat::operator=( Cat const &other ) {
     if ( _brain ) { delete _brain; }
     _brain = new Brain( *other._brain );
     std::cout << "[Cat] Copy assignment operator called" << std::endl;
-
     return *this;
 }
 
@@ -38,7 +37,6 @@ void Cat::addIdea( std::string const &idea ) { _brain->add( idea ); }
 /* -------------------------------------------------------------------------- */
 
 void Cat::print( std::ostream &os ) const {
-    os << "[Cat] ";
     os << "{ ";
     os << "type: "
        << "\"" << _type << "\", ";

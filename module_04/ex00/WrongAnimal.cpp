@@ -15,11 +15,12 @@ WrongAnimal::WrongAnimal( WrongAnimal const &other ) {
 WrongAnimal &WrongAnimal::operator=( WrongAnimal const &other ) {
     _type = other._type;
     std::cout << "[WrongAnimal] Copy assignment operator called" << std::endl;
-
     return *this;
 }
 
-WrongAnimal::~WrongAnimal() { std::cout << "[WrongAnimal] Destructor called" << std::endl; }
+WrongAnimal::~WrongAnimal() {
+    std::cout << "[WrongAnimal] Destructor called" << std::endl;
+}
 
 /* -------------------------------------------------------------------------- */
 
@@ -27,21 +28,23 @@ std::string const &WrongAnimal::getType() const { return _type; }
 
 /* -------------------------------------------------------------------------- */
 
-void WrongAnimal::makeSound() const {}
+void WrongAnimal::makeSound() const {
+    std::cout << "[WrongAnimal] * Generic animal sound... *" << std::endl;
+}
 
 /* -------------------------------------------------------------------------- */
 
-void WrongAnimal::print(std::ostream &os) const {
-    os << "[WrongAnimal] ";
+void WrongAnimal::print( std::ostream &os ) const {
     os << "{ ";
-    os << "type: " << "\"" << _type << "\"";
+    os << "type: "
+       << "\"" << _type << "\"";
     os << " }";
 }
 
 /* -------------------------------------------------------------------------- */
 
-std::ostream &operator<<( std::ostream &os, WrongAnimal const & wrongAnimal) {
-    wrongAnimal.print(os);
+std::ostream &operator<<( std::ostream &os, WrongAnimal const &wrongAnimal ) {
+    wrongAnimal.print( os );
     return os;
 }
 

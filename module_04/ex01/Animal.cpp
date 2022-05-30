@@ -15,7 +15,6 @@ Animal::Animal( Animal const &other ) {
 Animal &Animal::operator=( Animal const &other ) {
     _type = other._type;
     std::cout << "[Animal] Copy assignment operator called" << std::endl;
-
     return *this;
 }
 
@@ -36,7 +35,6 @@ void Animal::addIdea( std::string const &idea ) { ( void ) idea; }
 /* -------------------------------------------------------------------------- */
 
 void Animal::print( std::ostream &os ) const {
-    os << "[Animal] ";
     os << "{ ";
     os << "type: "
        << "\"" << _type << "\"";

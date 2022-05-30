@@ -18,7 +18,6 @@ Dog &Dog::operator=( Dog const &other ) {
     if ( _brain ) { delete _brain; }
     _brain = new Brain( *other._brain );
     std::cout << "[Dog] Copy assignment operator called" << std::endl;
-
     return *this;
 }
 
@@ -38,7 +37,6 @@ void Dog::addIdea( std::string const &idea ) { _brain->add( idea ); }
 /* -------------------------------------------------------------------------- */
 
 void Dog::print( std::ostream &os ) const {
-    os << "[Dog] ";
     os << "{ ";
     os << "type: "
        << "\"" << _type << "\", ";

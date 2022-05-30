@@ -15,7 +15,6 @@ Cat::Cat( Cat const &other ) : Animal() {
 Cat &Cat::operator=( Cat const &other ) {
     _type = other._type;
     std::cout << "[Cat] Copy assignment operator called" << std::endl;
-
     return *this;
 }
 

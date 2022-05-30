@@ -38,7 +38,6 @@ void Dog::addIdea( std::string const &idea ) { _brain->add( idea ); }
 /* -------------------------------------------------------------------------- */
 
 void Dog::print( std::ostream &os ) const {
-    os << "[Dog] ";
     os << "{ ";
     os << "type: "
        << "\"" << _type << "\", ";
