@@ -37,6 +37,7 @@ int main() {
     c1->use( 1, *c2 );
     std::cout <<std::endl;
 
+    delete src;
     delete c1;
     delete c2;
 

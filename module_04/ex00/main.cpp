@@ -29,6 +29,7 @@ int main() {
     delete animal;
     delete dog;
     delete cat;
+    delete wrongAnimal;
 
     return 0;
 }
