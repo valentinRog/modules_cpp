@@ -17,7 +17,7 @@ public:
 
 	std::string const &getType() const;
 
-    virtual void makeSound() const;
+    void makeSound() const;
 
     virtual void print(std::ostream &os) const;
 };
