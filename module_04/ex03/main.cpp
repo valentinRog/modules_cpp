@@ -5,30 +5,40 @@
 #include "MateriaSource.hpp"
 
 int main() {
+
     IMateriaSource *src = new MateriaSource();
+    std::cout << std::endl;
+
     src->learnMateria( new Ice() );
-    src->learnMateria( new Cure() );
-
     std::cout << *src << std::endl;
+    src->learnMateria( new Cure() );
+    std::cout << *src << std::endl;
+    src->learnMateria( new Ice() );
+    std::cout << *src << std::endl;
+    std::cout << std::endl;
 
-    ICharacter *me = new Character( "me" );
+    ICharacter *c1 = new Character( "c1" );
+    std::cout << *c1 << std::endl;
+    std::cout << std::endl;
 
+    c1->equip(src->createMateria( "ice" ));
+    std::cout << *c1 << std::endl;
+    std::cout << std::endl;
 
-    AMateria *tmp;
-    tmp = src->createMateria( "ice" );
-    me->equip( tmp );
-    std::cout << *me << std::endl;
-    tmp = src->createMateria( "cure" );
-    me->equip( tmp );
+    c1->equip(src->createMateria( "cure" ));
+    std::cout << *c1 << std::endl;
+    std::cout << std::endl;
 
-    ICharacter *bob = new Character( "bob" );
+    ICharacter *c2 = new Character( "c2" );
+    std::cout << *c2 << std::endl;
+    std::cout << std::endl;
 
-    me->use( 0, *bob );
-    me->use( 1, *bob );
+    c1->use( 0, *c2 );
+    c1->use( 1, *c2 );
+    std::cout <<std::endl;
 
-    delete bob;
-    delete me;
-    delete src;
+    delete c1;
+    delete c2;
 
     return 0;
 }

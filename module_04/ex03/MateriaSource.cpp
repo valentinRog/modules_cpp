@@ -3,10 +3,8 @@
 /* -------------------------------------------------------------------------- */
 
 MateriaSource::MateriaSource() {
-    for ( int i = 0; i < _nMaterias; i++ ) {
-        _materias[i] = NULL;
-        std::cout << "[MateriaSource] Default constructor called" << std::endl;
-    }
+    for ( int i = 0; i < _nMaterias; i++ ) { _materias[i] = NULL; }
+    std::cout << "[MateriaSource] Default constructor called" << std::endl;
 }
 
 MateriaSource::MateriaSource( MateriaSource const &other ) {
