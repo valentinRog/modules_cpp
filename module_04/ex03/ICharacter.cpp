@@ -1,11 +1,9 @@
-#include "IMateriaSource.hpp"
+#include "ICharacter.hpp"
 
 /* -------------------------------------------------------------------------- */
 
-std::ostream &operator<<( std::ostream &        os,
-                          IMateriaSource const &iMateriaSource )
-{
-	iMateriaSource.print(os);
+std::ostream &operator<<( std::ostream &os, ICharacter const &iCharacter ) {
+	iCharacter.print( os );
 	return os;
 }
 

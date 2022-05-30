@@ -13,9 +13,11 @@ int main() {
 
     ICharacter *me = new Character( "me" );
 
+
     AMateria *tmp;
     tmp = src->createMateria( "ice" );
     me->equip( tmp );
+    std::cout << *me << std::endl;
     tmp = src->createMateria( "cure" );
     me->equip( tmp );
 

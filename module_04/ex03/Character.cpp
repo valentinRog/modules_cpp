@@ -58,3 +58,25 @@ void Character::use( int idx, ICharacter &target ) {
 }
 
 /* -------------------------------------------------------------------------- */
+
+void Character::print( std::ostream &os ) const {
+    os << "{ ";
+    os << "name: "
+       << "\"" << _name << "\" , ";
+    os << "inventory: ";
+    {
+        bool printed = false;
+        os << "[";
+        for ( int i = 0; i < _nSlots; i++ ) {
+            if ( _inventory[i] ) {
+                if ( printed ) { os << ","; }
+                os << " " << *( _inventory[i] ) << " ";
+                printed = true;
+            }
+        }
+        os << "]";
+    }
+    os << " }";
+}
+
+/* -------------------------------------------------------------------------- */

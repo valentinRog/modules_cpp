@@ -13,6 +13,10 @@ public:
     virtual void               equip( AMateria *m )               = 0;
     virtual void               unequip( int idx )                 = 0;
     virtual void               use( int idx, ICharacter &target ) = 0;
+
+    virtual void print( std::ostream &os ) const = 0;
 };
+
+std::ostream &operator<<( std::ostream &os, ICharacter const &iCharacter );
 
 #endif

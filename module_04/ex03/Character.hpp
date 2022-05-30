@@ -7,6 +7,13 @@
 
 class Character : public ICharacter {
 
+private:
+    std::string _name;
+
+    static int const _nSlots = 4;
+
+    AMateria *_inventory[_nSlots];
+
 public:
     Character();
     Character( std::string const &name );
@@ -19,12 +26,7 @@ public:
     virtual void               unequip( int idx );
     virtual void               use( int idx, ICharacter &target );
 
-private:
-    std::string _name;
-
-    static int const _nSlots = 4;
-
-    AMateria *_inventory[_nSlots];
+    void print( std::ostream &os ) const;
 };
 
 #endif
