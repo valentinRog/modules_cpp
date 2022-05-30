@@ -2,69 +2,42 @@
 #include "Form.hpp"
 #include <iostream>
 
+int main( void ) {
+    try {
+        Form f( "F1", 30, -1 );
+    } catch ( std::exception &e ) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
 
-int	main(void)
-{
-	try
-	{
-		Form	f("EB110", 0, 1);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Form	f("EB111", 1, 0);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Form	f("EB112", 1, 151);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Form	f("EB113", 151, 1);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	john = Bureaucrat("John", 1);
-		Form		f("EB114", 150, 150);
-		std::cout << f << std::endl;
-		john.signForm(f);
-		std::cout << f << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-	try
-	{
-		Bureaucrat	joe = Bureaucrat("Joe", 10);
-		Form		f("EB115", 1, 1);
-		std::cout << f << std::endl;
-		joe.signForm(f);
-		std::cout << f << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return 0;
+    try {
+        Form f( "F2", 1, 160 );
+    } catch ( std::exception &e ) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    try {
+        Bureaucrat bureaucrat1 = Bureaucrat( "bureaucrat1", 1 );
+        std::cout << bureaucrat1 << std::endl;
+        Form f( "F3", 150, 150 );
+        std::cout << f << std::endl;
+        bureaucrat1.signForm( f );
+        std::cout << f << std::endl;
+    } catch ( std::exception &e ) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+
+    try {
+        Bureaucrat bureaucrat2 = Bureaucrat( "bureaucrat2", 30 );
+        std::cout << bureaucrat2 << std::endl;
+        Form f( "F4", 29, 150 );
+        std::cout << f << std::endl;
+        bureaucrat2.signForm( f );
+        std::cout << f << std::endl;
+    } catch ( std::exception &e ) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
 }
