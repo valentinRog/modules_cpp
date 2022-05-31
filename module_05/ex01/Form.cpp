@@ -84,7 +84,8 @@ void Form::print( std::ostream &os ) const {
     os << "{ ";
     os << "name: \"" << _name << "\", ";
     os << "signed: " << _signed << ", ";
-    os << "gradeRequired: " << _gradeToSign;
+    os << "gradeToSign: " << _gradeToSign<< ", ";
+    os << "gradeToExecute: " << _gradeToExecute;
     os << " }";
 }
 

@@ -49,3 +49,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 }
 
 /* -------------------------------------------------------------------------- */
+
+void ShrubberyCreationForm::print( std::ostream &os ) const {
+    os << "{ ";
+    os << "name: \"" << getName() << "\", ";
+    os << "signed: " << getSigned() << ", ";
+    os << "gradeRequired: " << getGradeToSign() << ", ";
+    os << "gradeToExecute: " << getGradeToExecute() << ", ";
+    os << "target: \"" << _target << "\"";
+    os << " }";
+}
+
+/* -------------------------------------------------------------------------- */

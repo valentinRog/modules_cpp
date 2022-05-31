@@ -39,3 +39,15 @@ void RobotomyRequestForm::execute( Bureaucrat const &executor ) const {
 }
 
 /* -------------------------------------------------------------------------- */
+
+void RobotomyRequestForm::print( std::ostream &os ) const {
+    os << "{ ";
+    os << "name: \"" << getName() << "\", ";
+    os << "signed: " << getSigned() << ", ";
+    os << "gradeRequired: " << getGradeToSign() << ", ";
+    os << "gradeToExecute: " << getGradeToExecute() << ", ";
+    os << "target: \"" << _target << "\"";
+    os << " }";
+}
+
+/* -------------------------------------------------------------------------- */

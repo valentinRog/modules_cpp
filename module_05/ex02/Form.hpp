@@ -51,7 +51,7 @@ public:
 
     virtual void execute( Bureaucrat const &executor ) const = 0;
 
-    void print( std::ostream &os ) const;
+    virtual void print( std::ostream &os ) const;
 };
 
 std::ostream &operator<<( std::ostream &os, Form const &form );

@@ -51,7 +51,6 @@ int main() {
         b1.signForm(f1);
         b3.executeForm(f1);
         b1.executeForm(f1);
-    
         std::cout << std::endl;
     }
 

@@ -20,6 +20,8 @@ public:
     ~ShrubberyCreationForm( void );
 
     void execute(Bureaucrat const & executor) const;
+
+    void print( std::ostream &os ) const;
 };
 
 #endif
