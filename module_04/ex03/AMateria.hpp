@@ -22,14 +22,13 @@ public:
 
     std::string const &getType() const;
 
-    virtual AMateria * clone() const = 0;
+    virtual AMateria *clone() const = 0;
 
-    virtual void       use( ICharacter &target );
+    virtual void use( ICharacter &target );
 
-    void print(std::ostream &os) const;
+    void print( std::ostream &os ) const;
 };
 
-std::ostream &operator<<( std::ostream &       os,
-                          AMateria const &materia );
+std::ostream &operator<<( std::ostream &os, AMateria const &materia );
 
 #endif

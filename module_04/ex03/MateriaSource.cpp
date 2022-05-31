@@ -50,6 +50,8 @@ AMateria *MateriaSource::createMateria( std::string const &type ) {
     return NULL;
 }
 
+/* -------------------------------------------------------------------------- */
+
 void MateriaSource::print( std::ostream &os ) const {
     bool printed = false;
     os << "[";
