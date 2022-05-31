@@ -26,7 +26,7 @@ public:
           int                gradeToExecute = _lowestGrade );
     Form( Form const &other );
     Form &operator=( Form const &other );
-    ~Form();
+    virtual ~Form();
 
     std::string const &getName() const;
     bool               getSigned() const;
@@ -39,10 +39,17 @@ public:
     class GradeTooLowException : public std::exception {
         virtual const char *what() const throw();
     };
+    class NotSignedException : public std::exception {
+        virtual const char *what() const throw();
+    };
 
     void check_grade() const;
 
     void beSigned( Bureaucrat const &bureaucrat );
+
+    void check_executability( Bureaucrat const &executor ) const;
+
+    virtual void execute( Bureaucrat const &executor ) const = 0;
 
     void print( std::ostream &os ) const;
 };

@@ -44,6 +44,7 @@ public:
     void check_grade() const;
 
     bool signForm( Form &form ) const;
+    void executeForm( Form const &form );
 
     void print( std::ostream &os ) const;
 };
