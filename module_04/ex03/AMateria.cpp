@@ -32,7 +32,10 @@ std::string const &AMateria::getType() const { return _type; }
 
 /* -------------------------------------------------------------------------- */
 
-void AMateria::use( ICharacter &target ) { ( void ) target; }
+void AMateria::use( ICharacter &target ) {
+    ( void ) target;
+    std::cout << "This function should be pure virtual actually..." << std::endl;
+}
 
 /* -------------------------------------------------------------------------- */
 
