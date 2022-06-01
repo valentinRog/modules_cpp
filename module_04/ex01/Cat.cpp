@@ -21,6 +21,10 @@ Cat &Cat::operator=( Cat const &other ) {
     return *this;
 }
 
+Animal &Cat::operator=( const Animal &other ) {
+    return operator=( ( Cat const & ) other );
+}
+
 Cat::~Cat() {
     delete _brain;
     std::cout << "[Cat] Destructor called" << std::endl;

@@ -13,30 +13,33 @@ int main() {
     dog->addIdea( "dog idea #3" );
     dog->addIdea( "dog idea #4" );
 
-    std::cout << *dog << std::endl;
+    Cat cat;
     std::cout << std::endl;
 
+    cat.addIdea( "cat idea #1" );
+    cat.addIdea( "cat idea #2" );
+
+    int const arrSize = 5;
+    Animal *  arr[arrSize];
+
+    for ( int i = 0; i < arrSize; i++ ) {
+        if ( i % 2 ) {
+            arr[i] = new Cat( cat );
+        } else {
+            arr[i]      = new Dog();
+            *( arr[i] ) = *dog;
+        }
+    }
+    std::cout << std::endl;
     delete dog;
     std::cout << std::endl;
 
-	Cat cat1;
-	Cat cat2;
-	std::cout << std::endl;
+    for ( int i = 0; i < arrSize; i++ ) {
+        std::cout << *( arr[i] ) << std::endl;
+    }
+    std::cout << std::endl;
 
-	cat1.addIdea("cat1 idea #1");
-	cat1.addIdea("cat1 idea #2");
-	cat2.addIdea("cat2 idea #1");
-
-	std::cout << cat1 << std::endl;
-	std::cout << cat2 << std::endl;
-	std::cout << std::endl;
-
-	cat2 = cat1;
-	std::cout << std::endl;
-
-	std::cout << cat1 << std::endl;
-	std::cout << cat2 << std::endl;
-	std::cout << std::endl;
+    for ( int i = 0; i < arrSize; i++ ) { delete arr[i]; }
 
     return 0;
 }
