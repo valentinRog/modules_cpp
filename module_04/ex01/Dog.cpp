@@ -21,10 +21,6 @@ Dog &Dog::operator=( Dog const &other ) {
     return *this;
 }
 
-Animal &Dog::operator=( const Animal &other ) {
-    return operator=( ( Dog const & ) other );
-}
-
 Dog::~Dog() {
     delete _brain;
     std::cout << "[Dog] Destructor called" << std::endl;

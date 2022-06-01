@@ -19,7 +19,7 @@ int main() {
     cat.addIdea( "cat idea #1" );
     cat.addIdea( "cat idea #2" );
 
-    int const arrSize = 5;
+    int const arrSize = 6;
     Animal *  arr[arrSize];
 
     for ( int i = 0; i < arrSize; i++ ) {
@@ -27,7 +27,7 @@ int main() {
             arr[i] = new Cat( cat );
         } else {
             arr[i]      = new Dog();
-            *( arr[i] ) = *dog;
+            *static_cast<Dog*>(arr[i]) = *static_cast<Dog*>(dog);
         }
     }
     std::cout << std::endl;

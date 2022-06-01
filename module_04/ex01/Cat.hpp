@@ -13,7 +13,6 @@ public:
 	Cat();
 	Cat(Cat const & other);
 	Cat &operator=(Cat const & other);
-	Animal &operator=( const Animal &other );
 	~Cat();
 
 	void makeSound() const;
