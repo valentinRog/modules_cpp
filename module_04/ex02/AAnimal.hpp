@@ -15,15 +15,15 @@ public:
     AAnimal &operator=( AAnimal const &other );
     virtual ~AAnimal();
 
-	 std::string const &getType() const;
+    std::string const &getType() const;
 
-     virtual void makeSound() const = 0;
+    virtual void makeSound() const = 0;
 
-     virtual void addIdea(std::string const &idea) = 0;
+    virtual void addIdea( std::string const &idea ) = 0;
 
-     virtual void print(std::ostream &os) const = 0;
+    virtual void print( std::ostream &os ) const = 0;
 };
 
-std::ostream &operator<<( std::ostream &os, AAnimal const & aanimal);
+std::ostream &operator<<( std::ostream &os, AAnimal const &aanimal );
 
 #endif
