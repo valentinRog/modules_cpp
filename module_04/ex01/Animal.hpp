@@ -12,7 +12,7 @@ protected:
 public:
     Animal();
     Animal( Animal const &other );
-    virtual Animal &operator=( Animal const &other );
+    Animal &operator=( Animal const &other );
     virtual ~Animal();
 
 	std::string const &getType() const;
