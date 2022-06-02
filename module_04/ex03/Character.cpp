@@ -13,6 +13,7 @@ Character::Character( std::string const &name ) : _name( name ) {
 }
 
 Character::Character( Character const &other ) {
+    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = NULL; }
     *this = other;
     std::cout << "[Character] Copy constructor called" << std::endl;
 }
@@ -21,7 +22,9 @@ Character &Character::operator=( Character const &other ) {
     _name = other._name;
     for ( int i = 0; i < _nSlots; i++ ) {
         if ( _inventory[i] ) { delete _inventory[i]; }
-        _inventory[i] = other._inventory[i];
+        if ( other._inventory[i] ) {
+            _inventory[i] = other._inventory[i]->clone();
+        }
     }
     std::cout << "[Character] Copy assignment operator called" << std::endl;
     return *this;

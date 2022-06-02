@@ -37,9 +37,15 @@ int main() {
     c1->use( 1, *c2 );
     std::cout <<std::endl;
 
-    delete src;
+    Character c1Copy = *static_cast<Character*>(c1);
+    std::cout << std::endl;
+
     delete c1;
+    delete src;
     delete c2;
+
+    std::cout << c1Copy << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }

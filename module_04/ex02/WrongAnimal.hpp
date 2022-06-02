@@ -19,7 +19,7 @@ public:
 
     void makeSound() const;
 
-    virtual void print(std::ostream &os) const;
+    void print(std::ostream &os) const;
 };
 
 std::ostream &operator<<( std::ostream &os, WrongAnimal const & wrongAnimal);

@@ -18,7 +18,6 @@ AMateria::AMateria( AMateria const &other ) {
 AMateria &AMateria::operator=( AMateria const &other ) {
     _type = other._type;
     std::cout << "[AMateria] Copy assignment operator called" << std::endl;
-
     return *this;
 }
 
@@ -34,7 +33,7 @@ std::string const &AMateria::getType() const { return _type; }
 
 void AMateria::use( ICharacter &target ) {
     ( void ) target;
-    std::cout << "This function should be pure virtual imo..." << std::endl;
+    std::cout << "This function should be pure virtual..." << std::endl;
 }
 
 /* -------------------------------------------------------------------------- */
