@@ -43,6 +43,7 @@ int main() {
     delete c1;
     delete src;
     delete c2;
+    std::cout << std::endl;
 
     std::cout << c1Copy << std::endl;
     std::cout << std::endl;
