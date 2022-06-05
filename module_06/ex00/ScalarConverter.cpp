@@ -24,13 +24,13 @@ ScalarConverter::ScalarConverter( std::string const &str )
         fill_values<char>( str[1] );
         break;
     case INT:
-        fill_values<int>( convert<int>( str ) );
+        fill_values<int>( convert_from_str<int>( str ) );
         break;
     case FLOAT:
-        fill_values<float>( convert<float>( str ) );
+        fill_values<float>( convert_from_str<float>( str ) );
         break;
     case DOUBLE:
-        fill_values<double>( convert<double>( str ) );
+        fill_values<double>( convert_from_str<double>( str ) );
         break;
     }
 }
@@ -56,7 +56,11 @@ void ScalarConverter::print( std::ostream &os ) const {
     os << std::fixed;
     os << "char: ";
     if ( _c ) {
-        os << "\'" << *_c << "\'";
+        if ( std::isprint( *_c ) ) {
+            os << "\'" << *_c << "\'";
+        } else {
+            os << "not printable";
+        }
     } else {
         os << "impossible";
     }
@@ -86,7 +90,8 @@ void ScalarConverter::print( std::ostream &os ) const {
 /* -------------------------------------------------------------------------- */
 
 template <typename T>
-std::string const ScalarConverter::try_conversion( std::string const &str ) {
+std::string const
+ScalarConverter::try_conversion_from_str( std::string const &str ) {
     std::stringstream ss( str );
     T                 n;
     std::string       remainStr;
@@ -97,8 +102,6 @@ std::string const ScalarConverter::try_conversion( std::string const &str ) {
     return remainStr;
 }
 
-/* -------------------------------------------------------------------------- */
-
 ScalarConverter::e_type ScalarConverter::parse_type( std::string const &str ) {
     if ( str == "-inff" || str == "+inff" || str == "nanf" ) { return FLOAT; }
     if ( str == "-inf" || str == "+inf" || str == "nan" ) { return DOUBLE; }
@@ -107,25 +110,29 @@ ScalarConverter::e_type ScalarConverter::parse_type( std::string const &str ) {
         return CHAR;
     }
     if ( str.find( '.' ) != std::string::npos ) {
-        if ( try_conversion<double>( str ).empty() ) { return DOUBLE; }
+        if ( try_conversion_from_str<double>( str ).empty() ) { return DOUBLE; }
 
-        if ( try_conversion<float>( str ).size() == 1
-             && *try_conversion<float>( str ).begin() == 'f' ) {
+        if ( try_conversion_from_str<float>( str ).size() == 1
+             && *try_conversion_from_str<float>( str ).begin() == 'f' ) {
             return FLOAT;
         }
     }
-    if ( try_conversion<int>( str ).empty() ) { return INT; }
+    if ( try_conversion_from_str<int>( str ).empty() ) { return INT; }
     throw _conversionError;
 }
 
 /* -------------------------------------------------------------------------- */
 
-template <typename T> T ScalarConverter::convert( std::string const &str ) {
+template <typename T>
+T ScalarConverter::convert_from_str( std::string const &str ) {
     if ( str == "-inff" || str == "-inf" ) {
         return -std::numeric_limits<T>::infinity();
     }
     if ( str == "+inff" || str == "+inf" ) {
         return std::numeric_limits<T>::infinity();
+    }
+    if ( str == "nanf" || str == "nan" ) {
+        return std::numeric_limits<T>::quiet_NaN();
     }
 
     std::stringstream ss( str );
@@ -134,42 +141,28 @@ template <typename T> T ScalarConverter::convert( std::string const &str ) {
     return n;
 }
 
-template <typename T1> void dup_value( T1 n, char *&c ) {
-    if ( n >= std::numeric_limits<char>::min()
-         && n <= std::numeric_limits<char>::max() ) {
-        c = new char( static_cast<char>( n ) );
+template <typename T1, typename T2> T2 *ScalarConverter::convert( T1 const n ) {
+    if ( typeid( T2 ) == typeid( char ) || typeid( T2 ) == typeid( int ) ) {
+        if ( n >= std::numeric_limits<T2>::min()
+             && n <= std::numeric_limits<T2>::max() ) {
+            return new T2( static_cast<T2>( n ) );
+        }
+    } else {
+        if ( abs( n ) <= std::numeric_limits<T2>::max() ) {
+            return new T2( static_cast<T2>( n ) );
+        }
     }
-    ( void ) c;
-}
-
-template <typename T1> void dup_value( T1 n, int *&i ) {
-    if ( n >= std::numeric_limits<int>::min()
-         && n <= std::numeric_limits<int>::max() ) {
-        i = new int( static_cast<int>( n ) );
-    }
-    ( void ) i;
-}
-
-template <typename T1> void dup_value( T1 n, float *&f ) {
-    if ( abs( n ) <= std::numeric_limits<float>::max() ) {
-        f = new float( static_cast<float>( n ) );
-    }
-    ( void ) f;
-}
-
-template <typename T1> void dup_value( T1 n, double *&d ) {
-    if ( abs( n ) <= std::numeric_limits<double>::max() ) {
-        d = new double( static_cast<double>( n ) );
-    }
-    ( void ) d;
+    return NULL;
 }
 
 template <typename T> void ScalarConverter::fill_values( T n ) {
-    dup_value<T>( n, _c );
-    dup_value<T>( n, _i );
-    dup_value<T>( n, _f );
-    dup_value<T>( n, _d );
+    _c = convert<T, char>( n );
+    _i = convert<T, int>( n );
+    _f = convert<T, float>( n );
+    _d = convert<T, double>( n );
 }
+
+/* -------------------------------------------------------------------------- */
 
 void ScalarConverter::delete_values() {
     if ( _c ) {

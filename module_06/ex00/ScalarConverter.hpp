@@ -1,13 +1,13 @@
 #ifndef SCALAR_CONVERTER_HPP
 #define SCALAR_CONVERTER_HPP
 
+#include <climits>
+#include <cmath>
 #include <iostream>
+#include <limits>
 #include <sstream>
 #include <string>
-#include <limits>
 #include <typeinfo>
-#include <cmath>
-#include <climits>
 
 class ScalarConverter {
 
@@ -22,13 +22,14 @@ private:
     static std::runtime_error _conversionError;
 
     template <typename T>
-    std::string const try_conversion( std::string const &str );
+    std::string const try_conversion_from_str( std::string const &str );
     e_type            parse_type( std::string const &str );
 
-    template <typename T> T    convert( std::string const &str );
-    template <typename T> void fill_values( T n );
+    template <typename T> T convert_from_str( std::string const &str );
+    template <typename T1, typename T2> T2 *convert( T1 const n );
+    template <typename T> void              fill_values( T n );
 
-	void delete_values();
+    void delete_values();
 
 public:
     ScalarConverter();
@@ -37,9 +38,9 @@ public:
     ScalarConverter &operator=( ScalarConverter const &other );
     ~ScalarConverter();
 
-	void print(std::ostream &os) const;
+    void print( std::ostream &os ) const;
 };
 
-std::ostream &operator<<( std::ostream &os, ScalarConverter const &sc);
+std::ostream &operator<<( std::ostream &os, ScalarConverter const &sc );
 
 #endif
