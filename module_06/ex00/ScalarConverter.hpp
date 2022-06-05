@@ -1,13 +1,11 @@
 #ifndef SCALAR_CONVERTER_HPP
 #define SCALAR_CONVERTER_HPP
 
-#include <climits>
 #include <cmath>
 #include <iostream>
 #include <limits>
 #include <sstream>
 #include <string>
-#include <typeinfo>
 
 #include "ConvertUtils.tpp"
 
@@ -25,6 +23,11 @@ private:
     int    str_to_int( std::string const &str );
     float  str_to_float( std::string const &str );
     double str_to_double( std::string const &str );
+
+    void fill( char n );
+    void fill( int n );
+    void fill( float n );
+    void fill( double n );
 
     void delete_values();
 

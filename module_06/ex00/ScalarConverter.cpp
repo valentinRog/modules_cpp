@@ -6,13 +6,7 @@ std::runtime_error ScalarConverter::_conversionError( "impossible conversion" );
 
 /* -------------------------------------------------------------------------- */
 
-ScalarConverter::ScalarConverter()
-    : _c( NULL ),
-      _i( NULL ),
-      _f( NULL ),
-      _d( NULL ) {
-    throw _conversionError;
-}
+ScalarConverter::ScalarConverter() { throw _conversionError; }
 
 ScalarConverter::ScalarConverter( std::string const &str )
     : _c( NULL ),
@@ -21,26 +15,18 @@ ScalarConverter::ScalarConverter( std::string const &str )
       _d( NULL ) {
     try {
         _c = new char( str_to_char( str ) );
-        _i = convert_to_new_int<char>( *_c );
-        _f = convert_to_new_float<char>( *_c );
-        _d = convert_to_new_double<char>( *_c );
+        fill( *_c );
     } catch ( std::exception & ) {
         try {
             _i = new int( str_to_int( str ) );
-            _c = convert_to_new_char<int>( *_i );
-            _f = convert_to_new_float<int>( *_i );
-            _d = convert_to_new_double<int>( *_i );
+            fill( *_i );
         } catch ( std::exception & ) {
             try {
                 _f = new float( str_to_float( str ) );
-                _c = convert_to_new_char<float>( *_f );
-                _i = convert_to_new_int<float>( *_f );
-                _d = convert_to_new_double<float>( *_f );
+                fill( *_f );
             } catch ( std::exception & ) {
                 _d = new double( str_to_double( str ) );
-                _c = convert_to_new_char<double>( *_d );
-                _i = convert_to_new_int<double>( *_d );
-                _f = convert_to_new_float<double>( *_d );
+                fill( *_d );
             }
         }
     }
@@ -145,6 +131,32 @@ double ScalarConverter::str_to_double( std::string const &str ) {
     ss >> n;
     if ( ss.fail() || ss >> buff ) { throw _conversionError; }
     return n;
+}
+
+/* -------------------------------------------------------------------------- */
+
+void ScalarConverter::fill( char n ) {
+    _i = convert_to_new_int<char>( n );
+    _f = convert_to_new_float<char>( n );
+    _d = convert_to_new_double<char>( n );
+}
+
+void ScalarConverter::fill( int n ) {
+    _c = convert_to_new_char<int>( n );
+    _f = convert_to_new_float<int>( n );
+    _d = convert_to_new_double<int>( n );
+}
+
+void ScalarConverter::fill( float n ) {
+    _c = convert_to_new_char<float>( n );
+    _i = convert_to_new_int<float>( n );
+    _d = convert_to_new_double<float>( n );
+}
+
+void ScalarConverter::fill( double n ) {
+    _c = convert_to_new_char<double>( n );
+    _i = convert_to_new_int<double>( n );
+    _f = convert_to_new_float<double>( n );
 }
 
 /* -------------------------------------------------------------------------- */
