@@ -19,19 +19,30 @@ ScalarConverter::ScalarConverter( std::string const &str )
       _i( NULL ),
       _f( NULL ),
       _d( NULL ) {
-    switch ( parse_type( str ) ) {
-    case CHAR:
-        fill_values<char>( str[1] );
-        break;
-    case INT:
-        fill_values<int>( convert_from_str<int>( str ) );
-        break;
-    case FLOAT:
-        fill_values<float>( convert_from_str<float>( str ) );
-        break;
-    case DOUBLE:
-        fill_values<double>( convert_from_str<double>( str ) );
-        break;
+    try {
+        _c = new char( str_to_char( str ) );
+        _i = convert_to_new_int<char>( *_c );
+        _f = convert_to_new_float<char>( *_c );
+        _d = convert_to_new_double<char>( *_c );
+    } catch ( std::exception & ) {
+        try {
+            _i = new int( str_to_int( str ) );
+            _c = convert_to_new_char<int>( *_i );
+            _f = convert_to_new_float<int>( *_i );
+            _d = convert_to_new_double<int>( *_i );
+        } catch ( std::exception & ) {
+            try {
+                _f = new float( str_to_float( str ) );
+                _c = convert_to_new_char<float>( *_f );
+                _i = convert_to_new_int<float>( *_f );
+                _d = convert_to_new_double<float>( *_f );
+            } catch ( std::exception & ) {
+                _d = new double( str_to_double( str ) );
+                _c = convert_to_new_char<double>( *_d );
+                _i = convert_to_new_int<double>( *_d );
+                _f = convert_to_new_float<double>( *_d );
+            }
+        }
     }
 }
 
@@ -89,77 +100,51 @@ void ScalarConverter::print( std::ostream &os ) const {
 
 /* -------------------------------------------------------------------------- */
 
-template <typename T>
-std::string const
-ScalarConverter::try_conversion_from_str( std::string const &str ) {
-    std::stringstream ss( str );
-    T                 n;
-    std::string       remainStr;
-
-    ss >> n;
-    if ( ss.fail() ) { throw _conversionError; }
-    ss >> remainStr;
-    return remainStr;
-}
-
-ScalarConverter::e_type ScalarConverter::parse_type( std::string const &str ) {
-    if ( str == "-inff" || str == "+inff" || str == "nanf" ) { return FLOAT; }
-    if ( str == "-inf" || str == "+inf" || str == "nan" ) { return DOUBLE; }
-    if ( str.size() == 3 && *str.begin() == *str.rbegin()
-         && *str.begin() == '\'' ) {
-        return CHAR;
+char ScalarConverter::str_to_char( std::string const &str ) {
+    if ( str.size() == 3 && str[0] == str[2] && str[0] == '\'' ) {
+        return str[1];
     }
-    if ( str.find( '.' ) != std::string::npos ) {
-        if ( try_conversion_from_str<double>( str ).empty() ) { return DOUBLE; }
-
-        if ( try_conversion_from_str<float>( str ).size() == 1
-             && *try_conversion_from_str<float>( str ).begin() == 'f' ) {
-            return FLOAT;
-        }
-    }
-    if ( try_conversion_from_str<int>( str ).empty() ) { return INT; }
     throw _conversionError;
 }
 
-/* -------------------------------------------------------------------------- */
-
-template <typename T>
-T ScalarConverter::convert_from_str( std::string const &str ) {
-    if ( str == "-inff" || str == "-inf" ) {
-        return -std::numeric_limits<T>::infinity();
-    }
-    if ( str == "+inff" || str == "+inf" ) {
-        return std::numeric_limits<T>::infinity();
-    }
-    if ( str == "nanf" || str == "nan" ) {
-        return std::numeric_limits<T>::quiet_NaN();
-    }
-
+int ScalarConverter::str_to_int( std::string const &str ) {
     std::stringstream ss( str );
-    T                 n;
+    int               n;
+    std::string       buff;
+
     ss >> n;
+    if ( ss.fail() || ss >> buff ) { throw _conversionError; }
     return n;
 }
 
-template <typename T1, typename T2> T2 *ScalarConverter::convert( T1 const n ) {
-    if ( typeid( T2 ) == typeid( char ) || typeid( T2 ) == typeid( int ) ) {
-        if ( n >= std::numeric_limits<T2>::min()
-             && n <= std::numeric_limits<T2>::max() ) {
-            return new T2( static_cast<T2>( n ) );
-        }
-    } else {
-        if ( abs( n ) <= std::numeric_limits<T2>::max() ) {
-            return new T2( static_cast<T2>( n ) );
-        }
+float ScalarConverter::str_to_float( std::string const &str ) {
+    if ( str == "-inff" ) { return -std::numeric_limits<float>::infinity(); }
+    if ( str == "+inff" ) { return std::numeric_limits<float>::infinity(); }
+    if ( str == "nanf" ) { return std::numeric_limits<float>::quiet_NaN(); }
+    if ( str.find( "." ) == std::string::npos ) { throw _conversionError; }
+    std::stringstream ss( str );
+    float             n;
+    std::string       buff;
+
+    ss >> n;
+    if ( ss.fail() || !( ss >> buff ) || buff[0] != 'f' ) {
+        throw _conversionError;
     }
-    return NULL;
+    return n;
 }
 
-template <typename T> void ScalarConverter::fill_values( T n ) {
-    _c = convert<T, char>( n );
-    _i = convert<T, int>( n );
-    _f = convert<T, float>( n );
-    _d = convert<T, double>( n );
+double ScalarConverter::str_to_double( std::string const &str ) {
+    if ( str == "-inf" ) { return -std::numeric_limits<double>::infinity(); }
+    if ( str == "+inf" ) { return std::numeric_limits<double>::infinity(); }
+    if ( str == "nan" ) { return std::numeric_limits<double>::quiet_NaN(); }
+    if ( str.find( "." ) == std::string::npos ) { throw _conversionError; }
+    std::stringstream ss( str );
+    double            n;
+    std::string       buff;
+
+    ss >> n;
+    if ( ss.fail() || ss >> buff ) { throw _conversionError; }
+    return n;
 }
 
 /* -------------------------------------------------------------------------- */

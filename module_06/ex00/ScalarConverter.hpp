@@ -9,6 +9,8 @@
 #include <string>
 #include <typeinfo>
 
+#include "ConvertUtils.tpp"
+
 class ScalarConverter {
 
 private:
@@ -17,17 +19,12 @@ private:
     float * _f;
     double *_d;
 
-    enum e_type { CHAR, INT, FLOAT, DOUBLE };
-
     static std::runtime_error _conversionError;
 
-    template <typename T>
-    std::string const try_conversion_from_str( std::string const &str );
-    e_type            parse_type( std::string const &str );
-
-    template <typename T> T convert_from_str( std::string const &str );
-    template <typename T1, typename T2> T2 *convert( T1 const n );
-    template <typename T> void              fill_values( T n );
+    char   str_to_char( std::string const &str );
+    int    str_to_int( std::string const &str );
+    float  str_to_float( std::string const &str );
+    double str_to_double( std::string const &str );
 
     void delete_values();
 
