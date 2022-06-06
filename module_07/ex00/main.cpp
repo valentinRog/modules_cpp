@@ -1,4 +1,4 @@
-#include "whatever.tpp"
+#include "whatever.hpp"
 #include <iostream>
 
 int main( void ) {
