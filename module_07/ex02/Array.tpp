@@ -30,7 +30,7 @@ template <typename T> Array<T> &Array<T>::operator=( Array<T> const &other ) {
 }
 
 template <typename T> Array<T>::~Array() {
-    if ( _arr ) { delete _arr; }
+    //if ( _arr ) { delete _arr; }
 }
 
 /* -------------------------------------------------------------------------- */
