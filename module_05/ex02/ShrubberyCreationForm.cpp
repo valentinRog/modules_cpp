@@ -5,6 +5,14 @@
 int const ShrubberyCreationForm::_gradeToSign    = 145;
 int const ShrubberyCreationForm::_gradeToExecute = 137;
 
+std::string const ShrubberyCreationForm::_asciiTree
+    = "  (ooo ooooo)\n"
+      " (ooooo oo0oo)\n"
+      "  (oo0o0o0oo)\n"
+      "      ||\n"
+      "      /|\n"
+      "    _/||\\_\n";
+
 /* -------------------------------------------------------------------------- */
 
 ShrubberyCreationForm::ShrubberyCreationForm()
@@ -29,23 +37,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {}
 
 /* -------------------------------------------------------------------------- */
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-    check_executability(executor);
+void ShrubberyCreationForm::execute( Bureaucrat const &executor ) const {
+    check_executability( executor );
     std::ofstream oFile;
-    oFile.open((_target + "_shrubbery").c_str(), std::ios::out);
-    oFile << "      ,.," << std::endl;
-	oFile << "      MMMM_    ,..," << std::endl;
-	oFile << "        \"_ \"__\"MMMMM          ,...,," << std::endl;
-	oFile << " ,..., __.\" --\"    ,.,     _-\"MMMMMMM" << std::endl;
-	oFile << "MMMMMM\"___ \"_._   MMM\"_.\"\" _ \"\"\"\"\"\"" << std::endl;
-	oFile << " \"\"\"\"\"    \"\" , \\_.   \"_. .\"" << std::endl;
-	oFile << "        ,., _\"__ \\__./ .\"" << std::endl;
-	oFile << "       MMMMM_\"  \"_    ./" << std::endl;
-	oFile << "        ''''      (    )" << std::endl;
-	oFile << " ._______________.-'____\"---._." << std::endl;
-	oFile << "  \\                          /" << std::endl;
-	oFile << "   \\________________________/" << std::endl;
-	oFile << "   (_)                    (_)" << std::endl;
+    oFile.open( ( _target + "_shrubbery" ).c_str(), std::ios::out );
+    oFile << _asciiTree;
 }
 
 /* -------------------------------------------------------------------------- */
