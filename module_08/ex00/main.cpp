@@ -19,7 +19,7 @@ int main( void ) {
     std::vector<int> vect( 100 );
 
     std::generate( vect.begin(), vect.end(), unique() );
-    std::vector<int>::iterator it = easyfind( vect, 95 );
+    std::vector<int>::const_iterator it = easyfind( vect, 95 );
     if ( it != vect.end() ) {
         std::cout << "vect[" << it - vect.begin() << "] = " << *it << std::endl;
     }
