@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main() {
-    Data *    new_ptr;
+    Data     *new_ptr;
     uintptr_t raw;
 
     srand( time( NULL ) );
@@ -15,7 +15,7 @@ int main() {
         raw     = serialize( ptr );
         new_ptr = deserialize( raw );
         std::cout << new_ptr->n << std::endl;
-		delete ptr;
+        delete ptr;
     }
 
     return 0;
