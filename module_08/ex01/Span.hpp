@@ -21,10 +21,16 @@ public:
     Span &operator=( Span const &other );
     ~Span();
 
-    void addNumber( int n );
+    void print( std::ostream &os ) const;
 
-    int shortestSpan();
+    void addNumber( int n );
+    void addNumber( std::vector<int>::iterator begin,
+                    std::vector<int>::iterator end );
+
+    int shortestSpan() const;
     int longestSpan() const;
 };
+
+std::ostream &operator<<( std::ostream &os, Span const &span );
 
 #endif

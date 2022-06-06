@@ -1,18 +1,24 @@
 #include "Span.hpp"
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
+
+struct random_functor {
+    int operator()() { return rand() % 10000; }
+};
 
 int main() {
-    Span sp = Span( 5 );
+    srand( time( NULL ) );
 
-    sp.addNumber( 6 );
-    sp.addNumber( 3 );
-    sp.addNumber( 17 );
-    sp.addNumber( 9 );
-    sp.addNumber( 11 );
+    {
+        const unsigned int n  = 1 << 16;
+        Span               sp = Span( n );
 
-    std::cout << sp.shortestSpan() << std::endl;
-    std::cout << sp.longestSpan() << std::endl;
+        std::vector<int> v( n );
+        std::generate( v.begin(), v.end(), random_functor() );
+        sp.addNumber( v.begin(), v.end() );
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.longestSpan() << std::endl;
+    }
 
     return 0;
 }
