@@ -19,10 +19,10 @@ private:
 
     static std::runtime_error _conversionError;
 
-    char   str_to_char( std::string const &str );
-    int    str_to_int( std::string const &str );
-    float  str_to_float( std::string const &str );
-    double str_to_double( std::string const &str );
+    char   str_to_char( std::string const &str ) const;
+    int    str_to_int( std::string const &str ) const;
+    float  str_to_float( std::string const &str ) const;
+    double str_to_double( std::string const &str ) const;
 
     void fill( char n );
     void fill( int n );
