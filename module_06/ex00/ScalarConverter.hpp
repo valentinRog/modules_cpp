@@ -7,27 +7,27 @@
 #include <sstream>
 #include <string>
 
-#include "convert.tpp"
-
 class ScalarConverter {
 
 private:
-    char *  _c;
-    int *   _i;
-    float * _f;
+    char   *_c;
+    int    *_i;
+    float  *_f;
     double *_d;
 
     static std::runtime_error _conversionError;
+
+    template <typename T> static char   *convert_to_new_char( T n );
+    template <typename T> static int    *convert_to_new_int( T n );
+    template <typename T> static float  *convert_to_new_float( T n );
+    template <typename T> static double *convert_to_new_double( T n );
 
     char   str_to_char( std::string const &str ) const;
     int    str_to_int( std::string const &str ) const;
     float  str_to_float( std::string const &str ) const;
     double str_to_double( std::string const &str ) const;
 
-    void fill( char n );
-    void fill( int n );
-    void fill( float n );
-    void fill( double n );
+    template <typename T> void fill( T n );
 
     void delete_values();
 
@@ -40,6 +40,8 @@ public:
 
     void print( std::ostream &os ) const;
 };
+
+#include "ScalarConverter.tpp"
 
 std::ostream &operator<<( std::ostream &os, ScalarConverter const &sc );
 

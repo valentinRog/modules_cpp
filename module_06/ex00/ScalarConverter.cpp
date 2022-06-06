@@ -135,32 +135,6 @@ double ScalarConverter::str_to_double( std::string const &str ) const {
 
 /* -------------------------------------------------------------------------- */
 
-void ScalarConverter::fill( char n ) {
-    _i = convert_to_new_int<char>( n );
-    _f = convert_to_new_float<char>( n );
-    _d = convert_to_new_double<char>( n );
-}
-
-void ScalarConverter::fill( int n ) {
-    _c = convert_to_new_char<int>( n );
-    _f = convert_to_new_float<int>( n );
-    _d = convert_to_new_double<int>( n );
-}
-
-void ScalarConverter::fill( float n ) {
-    _c = convert_to_new_char<float>( n );
-    _i = convert_to_new_int<float>( n );
-    _d = convert_to_new_double<float>( n );
-}
-
-void ScalarConverter::fill( double n ) {
-    _c = convert_to_new_char<double>( n );
-    _i = convert_to_new_int<double>( n );
-    _f = convert_to_new_float<double>( n );
-}
-
-/* -------------------------------------------------------------------------- */
-
 void ScalarConverter::delete_values() {
     if ( _c ) {
         delete _c;
