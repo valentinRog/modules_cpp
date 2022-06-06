@@ -30,17 +30,18 @@ int main() {
         std::cout << std::endl;
     }
 
-    { Array<Array<std::string> > chessBoard( 8 ); 
-		for (int i = 0; i < 8; i++) { 
-			Array<std::string> tmp(8);
-			for (int j = 0; j < 8; j++) { 
-				tmp[j] += static_cast<char>(i + 'a');
-				tmp[j] += std::to_string(j + 1);
-			}
-			chessBoard[i] = tmp; 
-		}
-		std::cout << chessBoard << std::endl;
-	}
+    {
+        Array<Array<std::string> > chessBoard( 8 );
+        for ( int i = 0; i < 8; i++ ) {
+            Array<std::string> tmp( 8 );
+            for ( int j = 0; j < 8; j++ ) {
+                tmp[j] += static_cast<char>( i + 'a' );
+                tmp[j] += std::to_string( j + 1 );
+            }
+            chessBoard[i] = tmp;
+        }
+        std::cout << chessBoard << std::endl;
+    }
 
     return 0;
 }

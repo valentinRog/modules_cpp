@@ -22,7 +22,7 @@ template <typename T> Array<T>::Array( Array<T> const &other ) {
 }
 
 template <typename T> Array<T> &Array<T>::operator=( Array<T> const &other ) {
-    if ( _arr ) { delete _arr; }
+    if ( _arr ) { delete[] _arr; }
     _size = other._size;
     if ( _size ) { _arr = new T[_size]; }
     for ( unsigned int i = 0; i < _size; i++ ) { _arr[i] = other._arr[i]; }
@@ -30,7 +30,7 @@ template <typename T> Array<T> &Array<T>::operator=( Array<T> const &other ) {
 }
 
 template <typename T> Array<T>::~Array() {
-    //if ( _arr ) { delete _arr; }
+    if ( _arr ) { delete[] _arr; }
 }
 
 /* -------------------------------------------------------------------------- */
