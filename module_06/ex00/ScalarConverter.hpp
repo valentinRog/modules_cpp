@@ -22,10 +22,10 @@ private:
     template <typename T> static float  *convert_to_new_float( T n );
     template <typename T> static double *convert_to_new_double( T n );
 
-    char   str_to_char( std::string const &str ) const;
-    int    str_to_int( std::string const &str ) const;
-    float  str_to_float( std::string const &str ) const;
-    double str_to_double( std::string const &str ) const;
+    static char   str_to_char( std::string const &str );
+    static int    str_to_int( std::string const &str );
+    static float  str_to_float( std::string const &str );
+    static double str_to_double( std::string const &str );
 
     template <typename T> void fill( T n );
 

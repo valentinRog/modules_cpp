@@ -86,14 +86,14 @@ void ScalarConverter::print( std::ostream &os ) const {
 
 /* -------------------------------------------------------------------------- */
 
-char ScalarConverter::str_to_char( std::string const &str ) const {
+char ScalarConverter::str_to_char( std::string const &str ) {
     if ( str.size() == 3 && str[0] == str[2] && str[0] == '\'' ) {
         return str[1];
     }
     throw _conversionError;
 }
 
-int ScalarConverter::str_to_int( std::string const &str ) const {
+int ScalarConverter::str_to_int( std::string const &str ) {
     std::stringstream ss( str );
     int               n;
     std::string       buff;
@@ -103,7 +103,7 @@ int ScalarConverter::str_to_int( std::string const &str ) const {
     return n;
 }
 
-float ScalarConverter::str_to_float( std::string const &str ) const {
+float ScalarConverter::str_to_float( std::string const &str ) {
     if ( str == "-inff" ) { return -std::numeric_limits<float>::infinity(); }
     if ( str == "+inff" ) { return std::numeric_limits<float>::infinity(); }
     if ( str == "nanf" ) { return std::numeric_limits<float>::quiet_NaN(); }
@@ -119,7 +119,7 @@ float ScalarConverter::str_to_float( std::string const &str ) const {
     return n;
 }
 
-double ScalarConverter::str_to_double( std::string const &str ) const {
+double ScalarConverter::str_to_double( std::string const &str ) {
     if ( str == "-inf" ) { return -std::numeric_limits<double>::infinity(); }
     if ( str == "+inf" ) { return std::numeric_limits<double>::infinity(); }
     if ( str == "nan" ) { return std::numeric_limits<double>::quiet_NaN(); }
