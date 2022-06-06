@@ -9,7 +9,7 @@ int main( int argc, char **argv ) {
         msg = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     } else if ( argc > 1 ) {
         for ( int i = 1; i < argc; i++ ) msg += argv[i];
-        for ( std::string::iterator it = msg.begin(); it < msg.end(); it++ ) {
+        for ( std::string::iterator it = msg.begin(); it != msg.end(); it++ ) {
             *it = std::toupper( *it );
         }
     }
