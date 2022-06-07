@@ -2,7 +2,7 @@
 #define SERIALIZE_H
 
 #include "Data.hpp"
-#include <cstdint>
+#include <stdint.h>
 
 uintptr_t serialize( Data *ptr );
 Data     *deserialize( uintptr_t raw );

@@ -104,7 +104,7 @@ int ScalarConverter::str_to_int( std::string const &str ) {
 }
 
 float ScalarConverter::str_to_float( std::string const &str ) {
-    if ( str.back() != 'f' ) { throw _conversionError; }
+    if ( !str.size() || *str.rbegin() != 'f' ) { throw _conversionError; }
     if ( str == "-inff" ) { return -std::numeric_limits<float>::infinity(); }
     if ( str == "+inff" ) { return std::numeric_limits<float>::infinity(); }
     if ( str == "nanf" ) { return std::numeric_limits<float>::quiet_NaN(); }
@@ -114,7 +114,6 @@ float ScalarConverter::str_to_float( std::string const &str ) {
     std::string       buff;
 
     ss >> n;
-    std::cout << n << std::endl;
     if ( ss.fail() || ss >> buff ) { throw _conversionError; }
     return n;
 }
