@@ -104,18 +104,18 @@ int ScalarConverter::str_to_int( std::string const &str ) {
 }
 
 float ScalarConverter::str_to_float( std::string const &str ) {
+    if ( str.back() != 'f' ) { throw _conversionError; }
     if ( str == "-inff" ) { return -std::numeric_limits<float>::infinity(); }
     if ( str == "+inff" ) { return std::numeric_limits<float>::infinity(); }
     if ( str == "nanf" ) { return std::numeric_limits<float>::quiet_NaN(); }
     if ( str.find( "." ) == std::string::npos ) { throw _conversionError; }
-    std::stringstream ss( str );
+    std::stringstream ss( str.substr( 0, str.size() - 1 ) );
     float             n;
     std::string       buff;
 
     ss >> n;
-    if ( ss.fail() || !( ss >> buff ) || buff[0] != 'f' ) {
-        throw _conversionError;
-    }
+    std::cout << n << std::endl;
+    if ( ss.fail() || ss >> buff ) { throw _conversionError; }
     return n;
 }
 
