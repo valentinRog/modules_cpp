@@ -9,10 +9,10 @@ std::runtime_error ScalarConverter::_conversionError( "impossible conversion" );
 ScalarConverter::ScalarConverter() { throw _conversionError; }
 
 ScalarConverter::ScalarConverter( std::string const &str )
-    : _c( NULL ),
-      _i( NULL ),
-      _f( NULL ),
-      _d( NULL ) {
+    : _c( 0 ),
+      _i( 0 ),
+      _f( 0 ),
+      _d( 0 ) {
     try {
         _c = new char( str_to_char( str ) );
         fill( *_c );
@@ -137,19 +137,19 @@ double ScalarConverter::str_to_double( std::string const &str ) {
 void ScalarConverter::delete_values() {
     if ( _c ) {
         delete _c;
-        _c = NULL;
+        _c = 0;
     }
     if ( _i ) {
         delete _i;
-        _i = NULL;
+        _i = 0;
     }
     if ( _f ) {
         delete _f;
-        _f = NULL;
+        _f = 0;
     }
     if ( _d ) {
         delete _d;
-        _d = NULL;
+        _d = 0;
     }
 }
 

@@ -5,7 +5,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 int main() {
-    std::srand( time( NULL ) );
+    std::srand( time( 0 ) );
 
     Bureaucrat b1( "b1", 1 );
     Bureaucrat b2( "b2", 40 );

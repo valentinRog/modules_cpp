@@ -16,7 +16,7 @@ template <typename T> char *ScalarConverter::convert_to_new_char( T n ) {
          && n <= std::numeric_limits<char>::max() ) {
         return new char( static_cast<char>( n ) );
     }
-    return NULL;
+    return 0;
 }
 
 template <typename T> int *ScalarConverter::convert_to_new_int( T n ) {
@@ -24,21 +24,21 @@ template <typename T> int *ScalarConverter::convert_to_new_int( T n ) {
          && n <= std::numeric_limits<int>::max() ) {
         return new int( static_cast<int>( n ) );
     }
-    return NULL;
+    return 0;
 }
 
 template <typename T> float *ScalarConverter::convert_to_new_float( T n ) {
     if ( abs( n ) <= std::numeric_limits<float>::max() ) {
         return new float( static_cast<float>( n ) );
     }
-    return NULL;
+    return 0;
 }
 
 template <typename T> double *ScalarConverter::convert_to_new_double( T n ) {
     if ( abs( n ) <= std::numeric_limits<double>::max() ) {
         return new double( static_cast<double>( n ) );
     }
-    return NULL;
+    return 0;
 }
 
 /* -------------------------------------------------------------------------- */
