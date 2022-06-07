@@ -114,7 +114,6 @@ float ScalarConverter::str_to_float( std::string const &str ) {
     std::string       buff;
 
     ss >> n;
-    std::cout << n << std::endl;
     if ( ss.fail() || ss >> buff ) { throw _conversionError; }
     return n;
 }
