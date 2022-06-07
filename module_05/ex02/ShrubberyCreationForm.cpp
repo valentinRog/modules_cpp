@@ -39,8 +39,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {}
 
 void ShrubberyCreationForm::execute( Bureaucrat const &executor ) const {
     check_executability( executor );
-    std::ofstream oFile;
-    oFile.open( ( _target + "_shrubbery" ).c_str(), std::ios::out );
+    std::ofstream oFile( ( _target + "_shrubbery" ).c_str() );
+    if ( !oFile ) {
+        throw std::runtime_error( _target + "_shrubbery" + ": unable to open" );
+    }
     oFile << _asciiTree;
 }
 
