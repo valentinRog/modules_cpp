@@ -104,7 +104,6 @@ int ScalarConverter::str_to_int( std::string const &str ) {
 }
 
 float ScalarConverter::str_to_float( std::string const &str ) {
-    std::cout << *str.end() << std::endl;
     if ( str.back() != 'f' ) { throw _conversionError; }
     if ( str == "-inff" ) { return -std::numeric_limits<float>::infinity(); }
     if ( str == "+inff" ) { return std::numeric_limits<float>::infinity(); }
