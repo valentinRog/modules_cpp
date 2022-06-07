@@ -1,4 +1,4 @@
-#include "identify.hpp"
+#include "identify.h"
 
 Base *generate() {
     switch ( rand() % 3 ) {
@@ -22,17 +22,17 @@ void identify( Base *p ) {
 
 void identify( Base &p ) {
     try {
-        dynamic_cast<A &>( p );
+        (void)dynamic_cast<A &>( p );
         std::cout << "A";
-    } catch ( const std::exception &e ) { ( void ) e; }
+    } catch ( const std::exception & ) {}
 
     try {
-        dynamic_cast<B &>( p );
+        (void)dynamic_cast<B &>( p );
         std::cout << "B";
-    } catch ( const std::exception &e ) { ( void ) e; }
+    } catch ( const std::exception & ) {}
 
     try {
-        dynamic_cast<C &>( p );
+        (void)dynamic_cast<C &>( p );
         std::cout << "C";
-    } catch ( const std::exception &e ) { ( void ) e; }
+    } catch ( const std::exception & ) {}
 }
