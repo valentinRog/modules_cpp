@@ -3,7 +3,7 @@
 /* -------------------------------------------------------------------------- */
 
 MateriaSource::MateriaSource() {
-    for ( int i = 0; i < _nMaterias; i++ ) { _materias[i] = NULL; }
+    for ( int i = 0; i < _nMaterias; i++ ) { _materias[i] = 0; }
     std::cout << "[MateriaSource] Default constructor called" << std::endl;
 }
 
@@ -18,7 +18,7 @@ MateriaSource &MateriaSource::operator=( MateriaSource const &other ) {
         if ( other._materias[i] ) {
             _materias[i] = other._materias[i]->clone();
         } else {
-            _materias[i] = NULL;
+            _materias[i] = 0;
         }
     }
     std::cout << "[MateriaSource] Copy assignment operator called" << std::endl;
@@ -47,7 +47,7 @@ AMateria *MateriaSource::createMateria( std::string const &type ) {
     for ( int i = 0; i < _nMaterias; i++ ) {
         if ( type == _materias[i]->getType() ) { return _materias[i]->clone(); }
     }
-    return NULL;
+    return 0;
 }
 
 /* -------------------------------------------------------------------------- */

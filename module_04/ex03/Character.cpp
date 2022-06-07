@@ -3,17 +3,17 @@
 /* -------------------------------------------------------------------------- */
 
 Character::Character() {
-    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = NULL; }
+    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = 0; }
     std::cout << "[Character] Default constructor called" << std::endl;
 }
 
 Character::Character( std::string const &name ) : _name( name ) {
-    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = NULL; }
+    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = 0; }
     std::cout << "[Character] Constructor called" << std::endl;
 }
 
 Character::Character( Character const &other ) {
-    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = NULL; }
+    for ( int i = 0; i < _nSlots; i++ ) { _inventory[i] = 0; }
     *this = other;
     std::cout << "[Character] Copy constructor called" << std::endl;
 }
@@ -51,7 +51,7 @@ void Character::equip( AMateria *m ) {
 }
 
 void Character::unequip( int idx ) {
-    if ( idx >= 0 && idx < _nSlots ) { _inventory[idx] = NULL; }
+    if ( idx >= 0 && idx < _nSlots ) { _inventory[idx] = 0; }
 }
 
 void Character::use( int idx, ICharacter &target ) {
