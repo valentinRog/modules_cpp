@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-	srand(time(0));
+	srand(time(NULL));
 
 	for (int i = 0; i < 50; i++)
 	{

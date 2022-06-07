@@ -9,10 +9,10 @@ std::runtime_error ScalarConverter::_conversionError( "impossible conversion" );
 ScalarConverter::ScalarConverter() { throw _conversionError; }
 
 ScalarConverter::ScalarConverter( std::string const &str )
-    : _c( 0 ),
-      _i( 0 ),
-      _f( 0 ),
-      _d( 0 ) {
+    : _c( NULL ),
+      _i( NULL ),
+      _f( NULL ),
+      _d( NULL ) {
     try {
         _c = new char( str_to_char( str ) );
         fill( *_c );
@@ -104,16 +104,18 @@ int ScalarConverter::str_to_int( std::string const &str ) {
 }
 
 float ScalarConverter::str_to_float( std::string const &str ) {
+    std::cout << *str.end() << std::endl;
     if ( str.back() != 'f' ) { throw _conversionError; }
     if ( str == "-inff" ) { return -std::numeric_limits<float>::infinity(); }
     if ( str == "+inff" ) { return std::numeric_limits<float>::infinity(); }
     if ( str == "nanf" ) { return std::numeric_limits<float>::quiet_NaN(); }
     if ( str.find( "." ) == std::string::npos ) { throw _conversionError; }
-    std::stringstream ss( str.substr( 0, str.size() - 1 ) );
+    std::stringstream ss( str.substr( 0, str.size() - 1));
     float             n;
     std::string       buff;
 
     ss >> n;
+    std::cout << n << std::endl;
     if ( ss.fail() || ss >> buff ) { throw _conversionError; }
     return n;
 }
@@ -137,19 +139,19 @@ double ScalarConverter::str_to_double( std::string const &str ) {
 void ScalarConverter::delete_values() {
     if ( _c ) {
         delete _c;
-        _c = 0;
+        _c = NULL;
     }
     if ( _i ) {
         delete _i;
-        _i = 0;
+        _i = NULL;
     }
     if ( _f ) {
         delete _f;
-        _f = 0;
+        _f = NULL;
     }
     if ( _d ) {
         delete _d;
-        _d = 0;
+        _d = NULL;
     }
 }
 

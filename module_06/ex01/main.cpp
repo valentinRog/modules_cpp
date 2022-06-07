@@ -6,7 +6,7 @@ int main() {
     Data     *new_ptr;
     uintptr_t raw;
 
-    srand( time( 0 ) );
+    srand( time( NULL ) );
     for ( int i = 0; i < 5; i++ ) {
         if ( i ) { std::cout << std::endl; }
         Data *ptr = new Data;

@@ -7,7 +7,7 @@ struct random_functor {
 };
 
 int main() {
-    srand( time( 0 ) );
+    srand( time( NULL ) );
 
     {
         const unsigned int n  = 1 << 16;

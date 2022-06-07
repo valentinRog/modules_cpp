@@ -10,7 +10,7 @@ int main( void ) {
     int const n   = 10;
     int *     arr = new int[n];
 
-    srand( time( 0 ) );
+    srand( time( NULL ) );
 
     iter( arr, n, rand100 );
     iter( arr, n, put );

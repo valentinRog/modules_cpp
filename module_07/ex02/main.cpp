@@ -8,7 +8,7 @@ static void fill_rand1000( Array<int> &arr ) {
 }
 
 int main() {
-    srand( time( 0 ) );
+    srand( time( NULL ) );
 
     {
         Array<int> *arr = new Array<int>( 20 );
