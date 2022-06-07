@@ -28,6 +28,15 @@ template <typename T> int *ScalarConverter::convert_to_new_int( T n ) {
 }
 
 template <typename T> float *ScalarConverter::convert_to_new_float( T n ) {
+    if ( isnan( n ) ) {
+        return new float( std::numeric_limits<float>::quiet_NaN() );
+    }
+    if ( n == std::numeric_limits<T>::infinity() ) {
+        return new float( std::numeric_limits<float>::infinity() );
+    }
+    if ( n == -std::numeric_limits<T>::infinity() ) {
+        return new float( -std::numeric_limits<float>::infinity() );
+    }
     if ( abs( n ) <= std::numeric_limits<float>::max() ) {
         return new float( static_cast<float>( n ) );
     }
@@ -35,6 +44,15 @@ template <typename T> float *ScalarConverter::convert_to_new_float( T n ) {
 }
 
 template <typename T> double *ScalarConverter::convert_to_new_double( T n ) {
+    if ( isnan( n ) ) {
+        return new double( std::numeric_limits<double>::quiet_NaN() );
+    }
+    if ( n == std::numeric_limits<T>::infinity() ) {
+        return new double( std::numeric_limits<double>::infinity() );
+    }
+    if ( n == -std::numeric_limits<T>::infinity() ) {
+        return new double( -std::numeric_limits<double>::infinity() );
+    }
     if ( abs( n ) <= std::numeric_limits<double>::max() ) {
         return new double( static_cast<double>( n ) );
     }
