@@ -60,7 +60,7 @@ SpaceInEmptyParentheses: false
 
 SpacesBeforeTrailingComments: 8
 
-SpacesInAngles: Leave
+SpacesInAngles: false
 
 SpacesInCStyleCastParentheses: true
 
