@@ -42,6 +42,8 @@ BreakBeforeTernaryOperators: true
 
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 
+FixNamespaceComments: false
+
 IndentWidth: 4
 
 SpaceAfterCStyleCast: true
