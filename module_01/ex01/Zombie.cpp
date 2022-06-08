@@ -10,7 +10,7 @@ Zombie::~Zombie() { std::cout << _name << " has been destroyed" << std::endl; }
 
 /* -------------------------------------------------------------------------- */
 
-void Zombie::set_name( std::string name ) { _name = name; }
+void Zombie::setName( std::string name ) { _name = name; }
 
 /* -------------------------------------------------------------------------- */
 

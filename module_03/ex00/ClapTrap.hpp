@@ -6,7 +6,7 @@
 
 class ClapTrap {
 
-protected:
+private:
     static unsigned int const _defaultHitPoints;
     static unsigned int const _defaultEnergyPoints;
     static unsigned int const _defaultAttackDamage;

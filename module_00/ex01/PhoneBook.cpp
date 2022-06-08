@@ -9,7 +9,7 @@ PhoneBook::PhoneBook() {
 
 /* -------------------------------------------------------------------------- */
 
-void PhoneBook::add_contact( Contact contact ) {
+void PhoneBook::addContact( Contact contact ) {
     _contacts[_insertIndex] = contact;
     _insertIndex++;
     if ( _insertIndex >= _contactMax ) { _insertIndex = 0; }
@@ -41,7 +41,7 @@ void PhoneBook::add() {
     getline( std::cin, phoneNumber );
     std::cout << "darkest secret: ";
     getline( std::cin, darkestSecret );
-    add_contact(
+    addContact(
         Contact( firstName, lastName, nickName, phoneNumber, darkestSecret ) );
 }
 

@@ -8,7 +8,7 @@ int const Fixed::_fractionalBits = 8;
 
 Fixed::Fixed() : _rawBits( 0 ) {}
 
-Fixed::Fixed( Fixed const &other ) { *this = other; }
+Fixed::Fixed( Fixed const &other ) : _rawBits( other._rawBits ) {}
 
 Fixed::Fixed( int const n ) : _rawBits( n << _fractionalBits ) {}
 
@@ -24,7 +24,7 @@ Fixed::~Fixed() {}
 
 /* -------------------------------------------------------------------------- */
 
-int Fixed::getRawBits( void ) const { return _rawBits; }
+int Fixed::getRawBits() const { return _rawBits; }
 
 void Fixed::setRawBits( int const raw ) { _rawBits = raw; }
 

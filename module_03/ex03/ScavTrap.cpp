@@ -23,16 +23,13 @@ ScavTrap::ScavTrap( std::string const &name )
     std::cout << "[ScavTrap] Constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap( ScavTrap const &other ) : ClapTrap( other._name ) {
-    *this = other;
+ScavTrap::ScavTrap( ScavTrap const &other ) : ClapTrap( other ) {
     std::cout << "[ScavTrap] Copy constructor called" << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=( ScavTrap const &other ) {
     ClapTrap::operator=( other );
-
     std::cout << "[ScavTrap] Copy assignment operator called" << std::endl;
-
     return *this;
 }
 

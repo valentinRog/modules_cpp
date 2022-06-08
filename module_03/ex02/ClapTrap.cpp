@@ -43,8 +43,11 @@ ClapTrap::ClapTrap( std::string const &name,
     std::cout << "[ClapTrap] Constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap( ClapTrap const &other ) {
-    *this = other;
+ClapTrap::ClapTrap( ClapTrap const &other )
+    : _name( other._name ),
+      _hitPoints( other._hitPoints ),
+      _energyPoints( other._energyPoints ),
+      _attackDamage( other._attackDamage ) {
     std::cout << "[ClapTrap] Copy constructor called" << std::endl;
 }
 

@@ -1,7 +1,7 @@
 #include "Point.hpp"
 #include <iostream>
 
-int main( void ) {
+int main() {
 
     typedef Point P;
 

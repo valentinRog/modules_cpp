@@ -16,7 +16,7 @@ private:
     int              _insertIndex;
     int              _contactCount;
 
-    void             add_contact( Contact contact );
+    void             addContact( Contact contact );
 
 public:
     PhoneBook();

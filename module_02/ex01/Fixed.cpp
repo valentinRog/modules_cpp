@@ -10,9 +10,8 @@ Fixed::Fixed() : _rawBits( 0 ) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( Fixed const &other ) {
+Fixed::Fixed( Fixed const &other ) : _rawBits( other._rawBits ) {
     std::cout << "Copy constructor called" << std::endl;
-    *this = other;
 }
 
 Fixed::Fixed( int const n ) : _rawBits( n << _fractionalBits ) {
@@ -34,7 +33,7 @@ Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
 
 /* -------------------------------------------------------------------------- */
 
-int Fixed::getRawBits( void ) const {
+int Fixed::getRawBits() const {
     std::cout << "getRawBits member function called" << std::endl;
     return _rawBits;
 }
