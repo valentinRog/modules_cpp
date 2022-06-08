@@ -7,13 +7,12 @@ Dog::Dog() {
     std::cout << "[Dog] Default constructor called" << std::endl;
 }
 
-Dog::Dog( Dog const &other ) : Animal() {
+Dog::Dog( Dog const &other ) : Animal( other ) {
     std::cout << "[Dog] Copy constructor called" << std::endl;
-    *this = other;
 }
 
 Dog &Dog::operator=( Dog const &other ) {
-    _type = other._type;
+    Animal::operator=( other );
     std::cout << "[Dog] Copy assignment operator called" << std::endl;
     return *this;
 }

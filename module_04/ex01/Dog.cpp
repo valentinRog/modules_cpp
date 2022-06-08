@@ -8,13 +8,13 @@ Dog::Dog() {
     std::cout << "[Dog] Default constructor called" << std::endl;
 }
 
-Dog::Dog( Dog const &other ) : Animal(), _brain( 0 ) {
+Dog::Dog( Dog const &other ) : Animal( other ), _brain( 0 ) {
     std::cout << "[Dog] Copy constructor called" << std::endl;
     *this = other;
 }
 
 Dog &Dog::operator=( Dog const &other ) {
-    _type = other._type;
+    Animal::operator=( other );
     if ( _brain ) { delete _brain; }
     _brain = new Brain( *other._brain );
     std::cout << "[Dog] Copy assignment operator called" << std::endl;

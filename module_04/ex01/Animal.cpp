@@ -7,9 +7,8 @@ Animal::Animal() {
     std::cout << "[Animal] Default constructor called" << std::endl;
 }
 
-Animal::Animal( Animal const &other ) {
+Animal::Animal( Animal const &other ) : _type( other._type ) {
     std::cout << "[Animal] Copy constructor called" << std::endl;
-    *this = other;
 }
 
 Animal &Animal::operator=( Animal const &other ) {
