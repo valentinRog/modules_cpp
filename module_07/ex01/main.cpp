@@ -2,17 +2,19 @@
 #include <cstdlib>
 #include <iostream>
 
-void rand100( int &x ) { x = rand() % 100; }
+namespace utils {
+static void rand( int &x ) { x = ::rand() % 100; }
+}
 
 template <typename T> void put( T &data ) { std::cout << data << std::endl; }
 
 int main( void ) {
     int const n   = 10;
-    int *     arr = new int[n];
+    int      *arr = new int[n];
 
     srand( time( 0 ) );
 
-    iter( arr, n, rand100 );
+    iter( arr, n, utils::rand );
     iter( arr, n, put );
 
     delete[] arr;
