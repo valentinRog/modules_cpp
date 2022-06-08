@@ -17,7 +17,7 @@ template <typename T> Array<T>::Array( unsigned int n ) : _size( n ) {
     }
 }
 
-template <typename T> Array<T>::Array( Array<T> const &other ) {
+template <typename T> Array<T>::Array( Array<T> const &other ) : _arr( 0 ) {
     *this = other;
 }
 
