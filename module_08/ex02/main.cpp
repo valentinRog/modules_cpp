@@ -1,7 +1,7 @@
 #include "MutantStack.hpp"
 #include <iostream>
 #include <algorithm>
-#include <array>
+#include <vector>
 #include <list>
 
 struct F {
@@ -15,13 +15,13 @@ private:
 };
 
 int main() {
-    std::array <int , 5> arr;
-    std::generate(arr.begin(), arr.end(), F());
+    std::vector <int> v(5);
+    std::generate(v.begin(), v.end(), F());
 
     {
         MutantStack<int> mstack;
 
-        for (std::array<int, 5>::iterator it = arr.begin(); it != arr.end(); it++) {
+        for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++) {
             mstack.push(*it);
         }
         for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); it++) {
@@ -42,7 +42,7 @@ int main() {
     {
         std::list<int> mstack;
 
-        for (std::array<int, 5>::iterator it = arr.begin(); it != arr.end(); it++) {
+        for (std::vector<int>::iterator it = v.begin(); it != v.end(); it++) {
             mstack.push_back(*it);
         }
         for (std::list<int>::iterator it = mstack.begin(); it != mstack.end(); it++) {

@@ -1,9 +1,7 @@
 #include "easyfind.hpp"
 #include <algorithm>
-#include <array>
-#include <cstdlib>
+#include <vector>
 #include <iostream>
-#include <random>
 
 struct F {
 
