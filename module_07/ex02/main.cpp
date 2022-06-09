@@ -1,6 +1,7 @@
 #include "Array.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <sstream>
 #include <string>
 
 static void fill( Array<int> &arr ) {
@@ -35,8 +36,9 @@ int main() {
         for ( int i = 0; i < 8; i++ ) {
             Array<std::string> tmp( 8 );
             for ( int j = 0; j < 8; j++ ) {
-                tmp[j] += static_cast<char>( i + 'a' );
-                tmp[j] += std::to_string( j + 1 );
+                std::stringstream ss;
+                ss << static_cast<char>( i + 'a' ) << j + 1;
+                tmp[j] = ss.str();
             }
             chessBoard[i] = tmp;
         }
