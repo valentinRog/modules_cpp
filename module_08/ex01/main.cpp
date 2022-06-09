@@ -47,5 +47,15 @@ int main() {
             std::cerr << "Error: " << e.what() << std::endl;
         }
     }
+    {
+        Span             sp( 5 );
+        std::vector<int> v( 10, 0 );
+
+        try {
+            sp.addNumber( v.begin(), v.end() );
+        } catch ( std::exception &e ) {
+            std::cerr << "Error: " << e.what() << std::endl;
+        }
+    }
     return 0;
 }
