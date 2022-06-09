@@ -1,4 +1,4 @@
-#include "whatever.hpp"
+#include "whatever.h"
 #include <iostream>
 
 int main( void ) {
