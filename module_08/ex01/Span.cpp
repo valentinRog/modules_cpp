@@ -2,8 +2,8 @@
 
 /* -------------------------------------------------------------------------- */
 
-std::overflow_error Span::_overflowException( "overflow" );
-std::length_error   Span::_lengthException( "length" );
+std::overflow_error Span::_overflowException( "max length exceeded" );
+std::length_error   Span::_lengthException( "length too small" );
 
 /* -------------------------------------------------------------------------- */
 
