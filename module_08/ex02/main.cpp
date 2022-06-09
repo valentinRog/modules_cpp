@@ -4,10 +4,10 @@
 #include <array>
 #include <list>
 
-struct uniqueFunctor {
+struct F {
 
 public:
-    uniqueFunctor() : _i( 0 ) {}
+    F() : _i( 0 ) {}
     int operator()() { return _i++; }
 
 private:
@@ -16,7 +16,7 @@ private:
 
 int main() {
     std::array <int , 5> arr;
-    std::generate(arr.begin(), arr.end(), uniqueFunctor());
+    std::generate(arr.begin(), arr.end(), F());
 
     {
         MutantStack<int> mstack;

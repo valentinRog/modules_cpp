@@ -5,10 +5,10 @@
 #include <iostream>
 #include <random>
 
-struct uniqueFunctor {
+struct F {
 
 public:
-    uniqueFunctor() : _i( 0 ) {}
+    F() : _i( 0 ) {}
     int operator()() { return _i++; }
 
 private:
@@ -18,7 +18,7 @@ private:
 int main( void ) {
     std::vector<int> vect( 100 );
 
-    std::generate( vect.begin(), vect.end(), uniqueFunctor() );
+    std::generate( vect.begin(), vect.end(), F() );
     std::vector<int>::const_iterator it = easyfind( vect, 95 );
     if ( it != vect.end() ) {
         std::cout << "vect[" << it - vect.begin() << "] = " << *it << std::endl;
