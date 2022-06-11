@@ -30,7 +30,6 @@ int main() {
         std::cout << arrCopy << std::endl;
         std::cout << std::endl;
     }
-
     {
         Array<Array<std::string> > chessBoard( 8 );
         for ( int i = 0; i < 8; i++ ) {
