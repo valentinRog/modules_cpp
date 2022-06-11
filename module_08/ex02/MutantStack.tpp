@@ -4,9 +4,8 @@
 template <typename T> MutantStack<T>::MutantStack() {}
 
 template <typename T>
-MutantStack<T>::MutantStack( MutantStack<T> const &other ) {
-    *this = other;
-}
+MutantStack<T>::MutantStack( MutantStack<T> const &other )
+    : std::stack<T>( other ) {}
 
 template <typename T>
 MutantStack<T> &MutantStack<T>::operator=( MutantStack<T> const &other ) {

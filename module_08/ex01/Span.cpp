@@ -14,8 +14,8 @@ Span::Span( unsigned int n ) : _n( n ) {}
 Span::Span( Span const &other ) { *this = other; }
 
 Span &Span::operator=( Span const &other ) {
-    _n    = other._n;
-    _vect = other._vect;
+    _n = other._n;
+    _v = other._v;
     return *this;
 }
 
@@ -25,10 +25,9 @@ Span::~Span() {}
 
 void Span::print( std::ostream &os ) const {
     os << "[ ";
-    for ( std::vector<int>::const_iterator it = _vect.begin();
-          it != _vect.end();
+    for ( std::vector<int>::const_iterator it = _v.begin(); it != _v.end();
           it++ ) {
-        if ( it != _vect.begin() ) { os << ", "; }
+        if ( it != _v.begin() ) { os << ", "; }
         os << *it;
     }
     os << " ]";
@@ -37,24 +36,24 @@ void Span::print( std::ostream &os ) const {
 /* -------------------------------------------------------------------------- */
 
 void Span::addNumber( int n ) {
-    if ( _vect.size() < _n ) {
-        _vect.push_back( n );
+    if ( _v.size() < _n ) {
+        _v.push_back( n );
     } else {
         throw _overflowException;
     }
 }
 
-void Span::addNumber( std::vector<int>::iterator begin,
-                      std::vector<int>::iterator end ) {
-    if ( end + _vect.size() > _n + begin ) { throw _overflowException; }
-    _vect.insert( _vect.end(), begin, end );
+void Span::addNumber( std::vector<int>::const_iterator begin,
+                      std::vector<int>::const_iterator end ) {
+    if ( end + _v.size() > _n + begin ) { throw _overflowException; }
+    _v.insert( _v.end(), begin, end );
 }
 
 /* -------------------------------------------------------------------------- */
 
 int Span::shortestSpan() const {
-    if ( _vect.size() < 2 ) { throw _lengthException; }
-    std::vector<int> v( _vect );
+    if ( _v.size() < 2 ) { throw _lengthException; }
+    std::vector<int> v( _v );
     int              span = std::numeric_limits<int>::max();
 
     std::sort( v.begin(), v.end() );
@@ -68,9 +67,9 @@ int Span::shortestSpan() const {
 }
 
 int Span::longestSpan() const {
-    if ( _vect.size() < 2 ) { throw _lengthException; }
-    int min = *std::min_element( _vect.begin(), _vect.end() );
-    int max = *std::max_element( _vect.begin(), _vect.end() );
+    if ( _v.size() < 2 ) { throw _lengthException; }
+    int min = *std::min_element( _v.begin(), _v.end() );
+    int max = *std::max_element( _v.begin(), _v.end() );
     return max - min;
 }
 

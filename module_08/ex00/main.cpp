@@ -1,25 +1,38 @@
 #include "easyfind.hpp"
 #include <algorithm>
-#include <vector>
+#include <cstdlib>
 #include <iostream>
+#include <vector>
 
 struct F {
-
-public:
-    F() : _i( 0 ) {}
-    int operator()() { return _i++; }
-
-private:
-    int _i;
+    int operator()() { return rand() % 10; }
 };
 
-int main( void ) {
-    std::vector<int> vect( 100 );
+static std::ostream &operator<<( std::ostream &os, std::vector<int> const &v ) {
+    os << "[ ";
+    for ( std::vector<int>::const_iterator it = v.begin(); it != v.end();
+          it++ ) {
+        if ( it != v.begin() ) { os << ", "; }
+        os << *it;
+    }
+    os << " ]";
+    return os;
+}
 
-    std::generate( vect.begin(), vect.end(), F() );
-    std::vector<int>::const_iterator it = easyfind( vect, 95 );
-    if ( it != vect.end() ) {
-        std::cout << "vect[" << it - vect.begin() << "] = " << *it << std::endl;
+int main() {
+    srand( time( 0 ) );
+
+    std::vector<int> v( 10 );
+    std::generate( v.begin(), v.end(), F() );
+
+    std::cout << v << std::endl;
+
+    int const                        x  = 4;
+    std::vector<int>::const_iterator it = easyfind( v, x );
+    if ( it != v.end() ) {
+        std::cout << x << ": Found at index " << it - v.begin() << std::endl;
+    } else {
+        std::cout << x << ": Not found" << std::endl;
     }
 
     return 0;
