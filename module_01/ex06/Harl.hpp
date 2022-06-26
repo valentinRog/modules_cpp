@@ -7,19 +7,21 @@
 class Harl {
 
 private:
-	void debug();
-	void info();
-	void warning();
-	void error();
+    void debug();
+    void info();
+    void warning();
+    void error();
 
-	static int const		 _levelCount;
-	static std::string const _levelStr[];
+    static int const         _levelCount;
+    static std::string const _levelStr[];
+
+    enum e_level { DEBUG, INFO, WARNING, ERROR };
 
 public:
-	int	 get_level_index( std::string level );
+    int get_level_index( std::string const &level );
 
-	void complain( std::string level );
-	void complainFilter( int code );
+    void complain( std::string const &level );
+    void complainFilter( std::string const &level );
 };
 
 #endif
